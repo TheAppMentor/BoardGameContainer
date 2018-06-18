@@ -11,13 +11,80 @@ import UIKit
 import GameKit
 
 class AchiGameBoard : NSObject, GameBoard {
+    
+    let rowCount : UInt8 = 3
+    let colCount : UInt8 = 3
+    let coinCountPerPlayer : UInt8 = 3
+    
+    var currentlyActivePlayer : GamePlayer
+    var allPlayers : [GamePlayer]
+    
+    subscript(row : UInt8, col : UInt8) -> GameBoardPosition? {
+        get{
+            let matchingPostions = chipPositions.filter({$0.row == row && $0.col == col})
+            guard matchingPostions.count == 1 else {
+                return nil
+            }
+            return matchingPostions.first!
+        }
+        set{
+            guard isValidRowCol(row: row, col: col) else {
+                assertionFailure("Attempting to get invalid GamePosition -> row : \(row), col : \(col)")
+                return
+            }
+            chipPositions.removeAll {return ($0.row == row && $0.col == col)}
+            chipPositions.append(newValue!)
+        }
+    }
+    
+    func isOccupied(gamePos : GameBoardPosition) throws -> Bool{
+
+        let row = gamePos.row
+        let col = gamePos.col
+        
+        if isValidRowCol(row: row, col: col){
+            return self[row,col]?.occupiedBy != nil
+        }
+        throw GameBoardError.invalidPosition
+    }
+
+    func isValidRowCol(row : UInt8, col : UInt8) -> Bool {
+        return isValidRow(row: row) && isValidCol(col: col)
+    }
+    
+    func isValidRow(row : UInt8) -> Bool{
+        return row < rowCount
+    }
+
+    func isValidCol(col : UInt8) -> Bool{
+        return col < colCount
+    }
+    
+    func getAllPositions() -> [GameBoardPosition] {
+        return chipPositions
+    }
+    
+    func getAllPositionsForPlayer(player : GamePlayer) -> [GameBoardPosition]{
+        return chipPositions.filter({
+            if let occupiedPos = $0.occupiedBy{
+                return (occupiedPos as! AchiPlayer) == (player as! AchiPlayer)
+            }
+            return false
+        })
+    }
+
+    
+    func generateGameBoard(gameType: GameType) {
+        
+    }
+    
     func getSpriteNodeForGameBoard(size: CGSize) -> SKSpriteNode? {
         return nil
     }
     
-    var chipPositions : [GameBoardPosition] = []
+    private var chipPositions : [GameBoardPosition] = []
 
-    var sortedChipPositions : [GameBoardPosition] {
+    private var sortedChipPositions : [GameBoardPosition] {
         //return chipPositions.sorted(by: {$0 < $1})
         return []
     }
@@ -28,21 +95,54 @@ class AchiGameBoard : NSObject, GameBoard {
         print("Achi Game Board Drawing... ")
         
         for eachPosition in chipPositions {
-            eachPosition.row
-            eachPosition.col
         }
     }
     
-    init(rulesEngine : GameRulesEngine) {
+    init(rulesEngine : GameRulesEngine, players : [GamePlayer]) {
         self.gameRulesEngine = rulesEngine
-    }
-    
-    func isValidMove(from : AchiBoardPosition, to : AchiBoardPosition) -> Bool{
-        return false
-    }
-    
-    func move(from : AchiBoardPosition, to : AchiBoardPosition){
         
+        for row in 0..<rowCount{
+            for col in 0..<colCount{
+                let gamePosition = AchiBoardPosition.init(row: row, col: col, occupiedBy: nil)
+                chipPositions.append(gamePosition)
+            }
+        }
+        
+        //Set currently active player. Right now we are choosing one of the players at Random.
+        self.allPlayers = players
+        self.currentlyActivePlayer = players.randomElement()!
+    }
+    
+//    func isValidMove(fromPos : AchiBoardPosition, toPos : AchiBoardPosition) -> Bool{
+//        
+//        return false
+//    }
+    
+    func make(move : GameMove) -> Bool{
+        
+        // Check if Game Move From Position is valid.
+        if let fromPos = move.startPosition{
+            guard isValidRowCol(row: fromPos.row, col: fromPos.col) else {
+                return false
+            }
+        }
+        
+        // Check if Game Move To Position is valid.
+        guard isValidRowCol(row: move.endPostion.row, col: move.endPostion.col) else {
+            return false
+        }
+        
+        if gameRulesEngine.isValidMove(gameBoard: self, gameMove: move){
+            let newRow : UInt8 =  move.endPostion.row
+            let newCol : UInt8 =  move.endPostion.col
+
+            let newGPos = AchiBoardPosition.init(row: newRow, col: newCol, occupiedBy: move.player)
+            self[newRow,newCol] = newGPos
+            currentlyActivePlayer = move.player
+            return true
+        }
+        
+        return false
     }
 }
 
@@ -60,7 +160,7 @@ extension AchiGameBoard : GKGameModel {
      * array to rate the moves of that player’s opponent(s).
      */
     var players: [GKGameModelPlayer]? {
-        return nil
+        return allPlayers
     }
     
     
@@ -69,7 +169,7 @@ extension AchiGameBoard : GKGameModel {
      * that the next call to the applyGameModelUpdate: method will perform a move on behalf of this player.
      */
     var activePlayer: GKGameModelPlayer? {
-        return nil
+        return currentlyActivePlayer
     }
     
     

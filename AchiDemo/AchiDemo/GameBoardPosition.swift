@@ -9,9 +9,8 @@
 import Foundation
 
 protocol GameBoardPosition {
-    
-    var col : UInt8 {get set}
     var row : UInt8 {get set}
+    var col : UInt8 {get set}
     var occupiedBy : GamePlayer? {get set}
     
 }

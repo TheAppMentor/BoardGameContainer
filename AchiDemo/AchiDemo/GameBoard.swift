@@ -12,9 +12,17 @@ import SpriteKit
 
 protocol GameBoard : GKGameModel {
 
-    var chipPositions : [GameBoardPosition] {get}
+//    var chipPositions : [GameBoardPosition] {get}
     var gameRulesEngine : GameRulesEngine {get}
+    var currentlyActivePlayer : GamePlayer {get set}
+
+    func getAllPositions() -> [GameBoardPosition]
+    func getAllPositionsForPlayer(player : GamePlayer) -> [GameBoardPosition]
+    
+    func make(move : GameMove) -> Bool
     
     func generateGameBoard(gameType : GameType)
-    func getSpriteNodeForGameBoard(size : CGSize) -> SKSpriteNode?    
+    func getSpriteNodeForGameBoard(size : CGSize) -> SKSpriteNode?
+
+    func isOccupied(gamePos : GameBoardPosition) throws -> Bool
 }

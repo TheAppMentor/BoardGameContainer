@@ -11,7 +11,10 @@ import Foundation
 class GameController {
     var gameBoard : GameBoard
         
-    init?(gameType : GameType) {
-        self.gameBoard = GameBoardFactory.createGameBoard(gameType: gameType)!
+    init?(gameType : GameType, players : [GamePlayer]) {
+        guard let validGameBoard = GameBoardFactory.createGameBoard(gameType: gameType, players: players) else {
+            return nil
+        }
+        self.gameBoard = validGameBoard
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import Foundation
+import GameplayKit
 
-protocol GamePlayer {
-    func makeMove()
+protocol GamePlayer : GKGameModelPlayer {
 }

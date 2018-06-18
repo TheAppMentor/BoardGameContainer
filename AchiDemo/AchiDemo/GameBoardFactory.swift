@@ -9,12 +9,12 @@
 import Foundation
 
 class GameBoardFactory {
-    static func createGameBoard(gameType : GameType) -> GameBoard?{
+    static func createGameBoard(gameType : GameType, players : [GamePlayer]) -> GameBoard?{
         switch gameType {
         case .AchiGame:
             let rulesEngine = AchiGameRulesEngine.init()
-            return AchiGameBoard(rulesEngine: rulesEngine)
-        
+            let achiBoard = AchiGameBoard(rulesEngine: rulesEngine, players: players)
+            return achiBoard
         case .LenChao:
             break            
         }

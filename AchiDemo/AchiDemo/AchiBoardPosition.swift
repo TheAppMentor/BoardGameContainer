@@ -9,8 +9,7 @@
 import Foundation
 
 struct AchiBoardPosition : GameBoardPosition {
-    var col: UInt8    
     var row: UInt8
+    var col: UInt8
     var occupiedBy: GamePlayer?
-    
 }
