@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 import GameKit
 
-class AchiGameBoard : NSObject, GameBoard {
+public class AchiGameBoard : NSObject, GameBoard {
     
-    let rowCount : UInt8 = 3
-    let colCount : UInt8 = 3
-    let coinCountPerPlayer : UInt8 = 3
+    public let rowCount : UInt8 = 3
+    public let colCount : UInt8 = 3
+    public let coinCountPerPlayer : UInt8 = 3
     
-    var currentlyActivePlayer : GamePlayer
+    public var currentlyActivePlayer : GamePlayer
     var allPlayers : [GamePlayer]
     
     subscript(row : UInt8, col : UInt8) -> GameBoardPosition? {
@@ -28,16 +28,19 @@ class AchiGameBoard : NSObject, GameBoard {
             return matchingPostions.first!
         }
         set{
-            guard isValidRowCol(row: row, col: col) else {
-                assertionFailure("Attempting to get invalid GamePosition -> row : \(row), col : \(col)")
-                return
-            }
             chipPositions.removeAll {return ($0.row == row && $0.col == col)}
             chipPositions.append(newValue!)
         }
     }
     
-    func isOccupied(gamePos : GameBoardPosition) throws -> Bool{
+    public func updatePosition(position : GameBoardPosition) throws{
+        guard isValidRowCol(row: position.row, col: position.col) else {
+            throw GameBoardError.invalidPosition
+        }
+        self[position.row,position.col] = position
+    }
+    
+    public func isOccupied(gamePos : GameBoardPosition) throws -> Bool{
 
         let row = gamePos.row
         let col = gamePos.col
@@ -60,11 +63,11 @@ class AchiGameBoard : NSObject, GameBoard {
         return col < colCount
     }
     
-    func getAllPositions() -> [GameBoardPosition] {
+    public func getAllPositions() -> [GameBoardPosition] {
         return chipPositions
     }
     
-    func getAllPositionsForPlayer(player : GamePlayer) -> [GameBoardPosition]{
+    public func getAllPositionsForPlayer(player : GamePlayer) -> [GameBoardPosition]{
         return chipPositions.filter({
             if let occupiedPos = $0.occupiedBy{
                 return (occupiedPos as! AchiPlayer) == (player as! AchiPlayer)
@@ -74,11 +77,12 @@ class AchiGameBoard : NSObject, GameBoard {
     }
 
     
-    func generateGameBoard(gameType: GameType) {
+    public func generateGameBoard(gameType: GameType) {
         
     }
     
-    func getSpriteNodeForGameBoard(size: CGSize) -> SKSpriteNode? {
+    public func getSpriteNodeForGameBoard(size: CGSize) -> SKSpriteNode? {
+        
         return nil
     }
     
@@ -89,7 +93,7 @@ class AchiGameBoard : NSObject, GameBoard {
         return []
     }
 
-    var gameRulesEngine : GameRulesEngine
+    public var gameRulesEngine : GameRulesEngine
     
     func drawGameBoardLayout() {
         print("Achi Game Board Drawing... ")
@@ -98,7 +102,7 @@ class AchiGameBoard : NSObject, GameBoard {
         }
     }
     
-    init(rulesEngine : GameRulesEngine, players : [GamePlayer]) {
+    public init(rulesEngine : GameRulesEngine, players : [GamePlayer]) {
         self.gameRulesEngine = rulesEngine
         
         for row in 0..<rowCount{
@@ -113,12 +117,7 @@ class AchiGameBoard : NSObject, GameBoard {
         self.currentlyActivePlayer = players.randomElement()!
     }
     
-//    func isValidMove(fromPos : AchiBoardPosition, toPos : AchiBoardPosition) -> Bool{
-//        
-//        return false
-//    }
-    
-    func make(move : GameMove) -> Bool{
+    public func make(move : GameMove) -> Bool{
         
         // Check if Game Move From Position is valid.
         if let fromPos = move.startPosition{
@@ -148,7 +147,7 @@ class AchiGameBoard : NSObject, GameBoard {
 
 
 extension AchiGameBoard : GKGameModel {
-    func copy(with zone: NSZone? = nil) -> Any {
+    public func copy(with zone: NSZone? = nil) -> Any {
         return 0
     }
     
@@ -159,7 +158,7 @@ extension AchiGameBoard : GKGameModel {
      * GKMinmaxStrategist class is used to find an optimal move for a specific player, it uses this
      * array to rate the moves of that player’s opponent(s).
      */
-    var players: [GKGameModelPlayer]? {
+    public var players: [GKGameModelPlayer]? {
         return allPlayers
     }
     
@@ -168,7 +167,7 @@ extension AchiGameBoard : GKGameModel {
      * The player whose turn it is to perform an update to the game model. GKMinmaxStrategist assumes
      * that the next call to the applyGameModelUpdate: method will perform a move on behalf of this player.
      */
-    var activePlayer: GKGameModelPlayer? {
+    public var activePlayer: GKGameModelPlayer? {
         return currentlyActivePlayer
     }
     
@@ -179,7 +178,7 @@ extension AchiGameBoard : GKGameModel {
      * permutations of the game without needing to apply potentially destructive updates to the
      * primary game model.
      */
-    func setGameModel(_ gameModel: GKGameModel){
+    public func setGameModel(_ gameModel: GKGameModel){
         
     }
     
@@ -190,8 +189,9 @@ extension AchiGameBoard : GKGameModel {
      * Returns nil if the specified player is invalid, is not a part of the game model, or
      * if there are no valid moves available.
      */
-    func gameModelUpdates(for player: GKGameModelPlayer) -> [GKGameModelUpdate]?{
-        return nil
+    public func gameModelUpdates(for player: GKGameModelPlayer) -> [GKGameModelUpdate]?{
+        let allPossMoves = gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: self, gamePlayer: player as! GamePlayer)
+        return allPossMoves
     }
     
     
@@ -201,7 +201,7 @@ extension AchiGameBoard : GKGameModel {
      * about possible future moves and their effects. It is assumed that calling this method performs
      * a move on behalf of the player identified by the activePlayer property.
      */
-    func apply(_ gameModelUpdate: GKGameModelUpdate){
+    public func apply(_ gameModelUpdate: GKGameModelUpdate){
         
     }
     

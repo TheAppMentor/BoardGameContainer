@@ -7,8 +7,6 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    GKMi
-    
     private var label : SKLabelNode!
     private var spinnyNode : SKShapeNode!
     

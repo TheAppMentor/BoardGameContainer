@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GameBoardPosition {
+public protocol GameBoardPosition {
     var row : UInt8 {get set}
     var col : UInt8 {get set}
     var occupiedBy : GamePlayer? {get set}

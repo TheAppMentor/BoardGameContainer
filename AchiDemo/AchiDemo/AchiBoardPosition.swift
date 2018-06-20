@@ -8,8 +8,14 @@
 
 import Foundation
 
-struct AchiBoardPosition : GameBoardPosition {
-    var row: UInt8
-    var col: UInt8
-    var occupiedBy: GamePlayer?
+public struct AchiBoardPosition : GameBoardPosition {
+    public var row: UInt8
+    public var col: UInt8
+    public var occupiedBy: GamePlayer?
+    
+    public init(row : UInt8, col : UInt8, occupiedBy : GamePlayer?) {
+        self.row = row
+        self.col = col
+        self.occupiedBy = occupiedBy
+    }
 }

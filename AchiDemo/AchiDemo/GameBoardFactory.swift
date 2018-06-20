@@ -8,8 +8,8 @@
 
 import Foundation
 
-class GameBoardFactory {
-    static func createGameBoard(gameType : GameType, players : [GamePlayer]) -> GameBoard?{
+public class GameBoardFactory {
+    public static func createGameBoard(gameType : GameType, players : [GamePlayer]) -> GameBoard?{
         switch gameType {
         case .AchiGame:
             let rulesEngine = AchiGameRulesEngine.init()

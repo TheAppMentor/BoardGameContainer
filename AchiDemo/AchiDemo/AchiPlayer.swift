@@ -7,19 +7,38 @@
 //
 
 import Foundation
+import SpriteKit
 
-class AchiPlayer: NSObject, GamePlayer {
-
-    var playerId: Int
+public enum GamePlayerColor {
+    case Red
+    case Black
     
-    override init() {
+    func imageName() -> String{
+        switch self {
+        case .Red:
+            return "RedCoin.png"
+            //return UIImage(named: "RedCoin.png")
+        case .Black:
+            return "BlackCoin.png"
+            //return UIImage(named: "BlackCoin.png")
+        }
+    }
+}
+
+public class AchiPlayer: NSObject, GamePlayer {
+
+    public var playerId: Int
+    public var coinNode : SKSpriteNode
+    
+    public init(color : GamePlayerColor) {
         self.playerId = UUID().uuidString.hashValue
-        super.init()
+        self.coinNode = SKSpriteNode(imageNamed: color.imageName())
+        //super.init()
     }
 }
 
 extension AchiPlayer {
-    static func ==(lhs : AchiPlayer, rhs : AchiPlayer) -> Bool {
+    public static func ==(lhs : AchiPlayer, rhs : AchiPlayer) -> Bool {
         return lhs.playerId == rhs.playerId
         
     }

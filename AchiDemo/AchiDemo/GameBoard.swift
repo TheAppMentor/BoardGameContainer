@@ -10,7 +10,7 @@ import Foundation
 import GameKit
 import SpriteKit
 
-protocol GameBoard : GKGameModel {
+public protocol GameBoard : GKGameModel {
 
 //    var chipPositions : [GameBoardPosition] {get}
     var gameRulesEngine : GameRulesEngine {get}

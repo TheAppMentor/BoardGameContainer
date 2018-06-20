@@ -13,11 +13,10 @@ import XCTest
 class AchiGameBoardTests: XCTestCase {
     
     func createSimpleGameBoard() -> GameBoard? {
-        let redPlayer = AchiPlayer()
-        let blackPlayer = AchiPlayer()
+        let redPlayer = AchiPlayer(color: .Red)
+        let blackPlayer = AchiPlayer(color: .Black)
         
         let achiGameBoard = GameBoardFactory.createGameBoard(gameType: .AchiGame, players: [redPlayer, blackPlayer])
-
         return achiGameBoard
     }
     
@@ -51,6 +50,7 @@ class AchiGameBoardTests: XCTestCase {
         }else{
             XCTFail()
         }
-        
     }
+    
+    
 }

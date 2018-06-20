@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GameType {
+public enum GameType {
     case AchiGame
     case LenChao
 }

@@ -8,6 +8,8 @@
 
 import Foundation
 import GameplayKit
+import SpriteKit
 
-protocol GamePlayer : GKGameModelPlayer {
+public protocol GamePlayer : GKGameModelPlayer {
+    var coinNode : SKSpriteNode {get}
 }

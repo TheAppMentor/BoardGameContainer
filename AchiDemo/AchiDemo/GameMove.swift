@@ -7,9 +7,20 @@
 //
 
 import Foundation
+import GameplayKit
 
-struct GameMove {
+public class GameMove : NSObject, GKGameModelUpdate {
+    
+    //A value assigned and read by GameplayKit to rate the desirability of a move in your game.
+    public var value: Int = 0
+    
     let startPosition : GameBoardPosition?
     let endPostion : GameBoardPosition
     let player : GamePlayer
+    
+    public init(startPosition : GameBoardPosition?, endPostion : GameBoardPosition, player : GamePlayer) {
+        self.startPosition = startPosition
+        self.endPostion = endPostion
+        self.player = player
+    }
 }

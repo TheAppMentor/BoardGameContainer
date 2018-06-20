@@ -8,13 +8,17 @@
 
 import Foundation
 
-class AchiGameRulesEngine : GameRulesEngine {
+public class AchiGameRulesEngine : GameRulesEngine {
     
-    func getAllPossibleMovesForPlayer(gameBoard: GameBoard, gamePlayer: GamePlayer) -> [GameMove] {
+    public init() {
+    }
+    
+    public func getAllPossibleMovesForPlayer(gameBoard: GameBoard, gamePlayer: GamePlayer) -> [GameMove] {
+        
         return []
     }
     
-    func isValidMove(gameBoard: GameBoard, gameMove: GameMove) -> Bool {
+    public func isValidMove(gameBoard: GameBoard, gameMove: GameMove) -> Bool {
         
         // The From and To Positions should be valid Board Positions.
         

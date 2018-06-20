@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GameRulesEngine {
+public protocol GameRulesEngine {
     func isValidMove(gameBoard : GameBoard, gameMove : GameMove) -> Bool
     func getAllPossibleMovesForPlayer(gameBoard : GameBoard, gamePlayer : GamePlayer) -> [GameMove]
 }

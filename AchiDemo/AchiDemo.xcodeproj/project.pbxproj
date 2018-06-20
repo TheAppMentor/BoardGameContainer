@@ -40,12 +40,36 @@
 		2F6A82B120D786CA004EAE85 /* GameBoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB9A2720D747C400BA497A /* GameBoardError.swift */; };
 		2F87758220D3BADE008BAEAB /* LenChaoGameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F87758120D3BADE008BAEAB /* LenChaoGameBoard.swift */; };
 		2F87758420D3C3C4008BAEAB /* GameMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F87758320D3C3C4008BAEAB /* GameMove.swift */; };
+		2FBDE64720D8FCC600596734 /* BoardGameContainerFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBDE64520D8FCC600596734 /* BoardGameContainerFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2FBDE64A20D8FCC600596734 /* BoardGameContainerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBDE64320D8FCC600596734 /* BoardGameContainerFramework.framework */; };
+		2FBDE64B20D8FCC600596734 /* BoardGameContainerFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBDE64320D8FCC600596734 /* BoardGameContainerFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2FBDE65020D8FD3A00596734 /* GameBoardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099BD208B94C6003D0750 /* GameBoardFactory.swift */; };
+		2FBDE65120D8FD3A00596734 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099B7208B8EDB003D0750 /* GameBoard.swift */; };
+		2FBDE65220D8FD3A00596734 /* GameBoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB9A2720D747C400BA497A /* GameBoardError.swift */; };
+		2FBDE65320D8FD3A00596734 /* AchiGameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B32088C78000864DBE /* AchiGameBoard.swift */; };
+		2FBDE65420D8FD3A00596734 /* GameBoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099C1208BAE67003D0750 /* GameBoardPosition.swift */; };
+		2FBDE65520D8FD3A00596734 /* GameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099BF208BAA60003D0750 /* GameType.swift */; };
+		2FBDE65620D8FD3A00596734 /* AchiPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6A82AE20D77596004EAE85 /* AchiPlayer.swift */; };
+		2FBDE65720D8FD3A00596734 /* GameMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F87758320D3C3C4008BAEAB /* GameMove.swift */; };
+		2FBDE65820D8FD3A00596734 /* GameRulesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099B9208B9120003D0750 /* GameRulesEngine.swift */; };
+		2FBDE65920D8FD3A00596734 /* AchiGameRulesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099BB208B9146003D0750 /* AchiGameRulesEngine.swift */; };
+		2FBDE65A20D8FD3A00596734 /* AchiBoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B52088C7AD00864DBE /* AchiBoardPosition.swift */; };
+		2FBDE65B20D8FD3A00596734 /* AchiMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B92088C82800864DBE /* AchiMove.swift */; };
+		2FBDE65C20D8FD7800596734 /* GamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099C3208BBC92003D0750 /* GamePlayer.swift */; };
+		2FBDE65D20D9047700596734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F63D5A82088C76A00864DBE /* Assets.xcassets */; };
 		2FCD8D7B208D054A006BC30A /* AchiDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCD8D7A208D054A006BC30A /* AchiDemoTests.swift */; };
 		2FCD8D83208D0556006BC30A /* AchiGameBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCD8D82208D0556006BC30A /* AchiGameBoardTests.swift */; };
 		2FEB9A2820D747C400BA497A /* GameBoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB9A2720D747C400BA497A /* GameBoardError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2FBDE64820D8FCC600596734 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F63D5962088C76800864DBE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FBDE64220D8FCC600596734;
+			remoteInfo = BoardGameContainerFramework;
+		};
 		2FCD8D7D208D054A006BC30A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2F63D5962088C76800864DBE /* Project object */;
@@ -54,6 +78,20 @@
 			remoteInfo = AchiDemo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2FBDE64F20D8FCC600596734 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2FBDE64B20D8FCC600596734 /* BoardGameContainerFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2F3099B5208B8D20003D0750 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
@@ -80,6 +118,9 @@
 		2F6A82AE20D77596004EAE85 /* AchiPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiPlayer.swift; sourceTree = "<group>"; };
 		2F87758120D3BADE008BAEAB /* LenChaoGameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenChaoGameBoard.swift; sourceTree = "<group>"; };
 		2F87758320D3C3C4008BAEAB /* GameMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMove.swift; sourceTree = "<group>"; };
+		2FBDE64320D8FCC600596734 /* BoardGameContainerFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoardGameContainerFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FBDE64520D8FCC600596734 /* BoardGameContainerFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardGameContainerFramework.h; sourceTree = "<group>"; };
+		2FBDE64620D8FCC600596734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FCD8D78208D054A006BC30A /* AchiDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AchiDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCD8D7A208D054A006BC30A /* AchiDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiDemoTests.swift; sourceTree = "<group>"; };
 		2FCD8D7C208D054A006BC30A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +130,14 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		2F63D59B2088C76800864DBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FBDE64A20D8FCC600596734 /* BoardGameContainerFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FBDE64020D8FCC600596734 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -132,6 +181,7 @@
 				2F4EE7E220D5744800F75F6E /* TrialPlayGround.playground */,
 				2F63D5A02088C76800864DBE /* AchiDemo */,
 				2FCD8D79208D054A006BC30A /* AchiDemoTests */,
+				2FBDE64420D8FCC600596734 /* BoardGameContainerFramework */,
 				2F63D59F2088C76800864DBE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -141,6 +191,7 @@
 			children = (
 				2F63D59E2088C76800864DBE /* AchiDemo.app */,
 				2FCD8D78208D054A006BC30A /* AchiDemoTests.xctest */,
+				2FBDE64320D8FCC600596734 /* BoardGameContainerFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +219,15 @@
 			path = AchiDemo;
 			sourceTree = "<group>";
 		};
+		2FBDE64420D8FCC600596734 /* BoardGameContainerFramework */ = {
+			isa = PBXGroup;
+			children = (
+				2FBDE64520D8FCC600596734 /* BoardGameContainerFramework.h */,
+				2FBDE64620D8FCC600596734 /* Info.plist */,
+			);
+			path = BoardGameContainerFramework;
+			sourceTree = "<group>";
+		};
 		2FCD8D79208D054A006BC30A /* AchiDemoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +242,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		2FBDE63E20D8FCC600596734 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FBDE64720D8FCC600596734 /* BoardGameContainerFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		2F63D59D2088C76800864DBE /* AchiDemo */ = {
 			isa = PBXNativeTarget;
@@ -190,15 +261,35 @@
 				2F63D59A2088C76800864DBE /* Sources */,
 				2F63D59B2088C76800864DBE /* Frameworks */,
 				2F63D59C2088C76800864DBE /* Resources */,
+				2FBDE64F20D8FCC600596734 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2FBDE64920D8FCC600596734 /* PBXTargetDependency */,
 			);
 			name = AchiDemo;
 			productName = AchiDemo;
 			productReference = 2F63D59E2088C76800864DBE /* AchiDemo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2FBDE64220D8FCC600596734 /* BoardGameContainerFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FBDE64E20D8FCC600596734 /* Build configuration list for PBXNativeTarget "BoardGameContainerFramework" */;
+			buildPhases = (
+				2FBDE63E20D8FCC600596734 /* Headers */,
+				2FBDE63F20D8FCC600596734 /* Sources */,
+				2FBDE64020D8FCC600596734 /* Frameworks */,
+				2FBDE64120D8FCC600596734 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoardGameContainerFramework;
+			productName = BoardGameContainerFramework;
+			productReference = 2FBDE64320D8FCC600596734 /* BoardGameContainerFramework.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		2FCD8D77208D054A006BC30A /* AchiDemoTests */ = {
 			isa = PBXNativeTarget;
@@ -232,6 +323,9 @@
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1000;
 					};
+					2FBDE64220D8FCC600596734 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					2FCD8D77208D054A006BC30A = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1000;
@@ -254,6 +348,7 @@
 			targets = (
 				2F63D59D2088C76800864DBE /* AchiDemo */,
 				2FCD8D77208D054A006BC30A /* AchiDemoTests */,
+				2FBDE64220D8FCC600596734 /* BoardGameContainerFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -266,6 +361,14 @@
 				2F63D5AC2088C76A00864DBE /* LaunchScreen.storyboard in Resources */,
 				2F63D5A92088C76A00864DBE /* Assets.xcassets in Resources */,
 				2F63D5A72088C76800864DBE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FBDE64120D8FCC600596734 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FBDE65D20D9047700596734 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +406,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FBDE63F20D8FCC600596734 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FBDE65820D8FD3A00596734 /* GameRulesEngine.swift in Sources */,
+				2FBDE65220D8FD3A00596734 /* GameBoardError.swift in Sources */,
+				2FBDE65920D8FD3A00596734 /* AchiGameRulesEngine.swift in Sources */,
+				2FBDE65620D8FD3A00596734 /* AchiPlayer.swift in Sources */,
+				2FBDE65720D8FD3A00596734 /* GameMove.swift in Sources */,
+				2FBDE65B20D8FD3A00596734 /* AchiMove.swift in Sources */,
+				2FBDE65C20D8FD7800596734 /* GamePlayer.swift in Sources */,
+				2FBDE65320D8FD3A00596734 /* AchiGameBoard.swift in Sources */,
+				2FBDE65120D8FD3A00596734 /* GameBoard.swift in Sources */,
+				2FBDE65420D8FD3A00596734 /* GameBoardPosition.swift in Sources */,
+				2FBDE65020D8FD3A00596734 /* GameBoardFactory.swift in Sources */,
+				2FBDE65A20D8FD3A00596734 /* AchiBoardPosition.swift in Sources */,
+				2FBDE65520D8FD3A00596734 /* GameType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2FCD8D74208D054A006BC30A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -329,6 +452,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2FBDE64920D8FCC600596734 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FBDE64220D8FCC600596734 /* BoardGameContainerFramework */;
+			targetProxy = 2FBDE64820D8FCC600596734 /* PBXContainerItemProxy */;
+		};
 		2FCD8D7E208D054A006BC30A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2F63D59D2088C76800864DBE /* AchiDemo */;
@@ -473,6 +601,7 @@
 		2F63D5B12088C76A00864DBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TLV25NDMDF;
@@ -491,6 +620,7 @@
 		2F63D5B22088C76A00864DBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TLV25NDMDF;
@@ -503,6 +633,65 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2FBDE64C20D8FCC600596734 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TLV25NDMDF;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BoardGameContainerFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prash.BoardGameContainerFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2FBDE64D20D8FCC600596734 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = TLV25NDMDF;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BoardGameContainerFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.prash.BoardGameContainerFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -563,6 +752,15 @@
 			buildConfigurations = (
 				2F63D5B12088C76A00864DBE /* Debug */,
 				2F63D5B22088C76A00864DBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FBDE64E20D8FCC600596734 /* Build configuration list for PBXNativeTarget "BoardGameContainerFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FBDE64C20D8FCC600596734 /* Debug */,
+				2FBDE64D20D8FCC600596734 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
