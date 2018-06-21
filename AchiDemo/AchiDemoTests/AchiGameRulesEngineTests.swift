@@ -30,6 +30,63 @@ class AchiGameRulesEngineTests: XCTestCase {
         }
     }
     
+    func testGetAllPossibleMovesForPlayer(){
+        
+        let gameBoard = TestUtils.createSimpleAchiGameBoard()
+
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 0, col: 0, occupiedBy: gameBoard.redPlayer))
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 0, col: 1, occupiedBy: gameBoard.blackPlayer))
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 1, col: 0, occupiedBy: gameBoard.redPlayer))
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 2, col: 2, occupiedBy: gameBoard.blackPlayer))
+
+        let allGameModelUpdates = gameBoard.gameModelUpdates(for: gameBoard.redPlayer)
+        
+        print(allGameModelUpdates)
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func testPlaceCoinOnOpenBoard(){
         //let gameBoard = GameBoardFactory.createGameBoard(gameType : .AchiGame)
     }
@@ -41,6 +98,8 @@ class AchiGameRulesEngineTests: XCTestCase {
     func testMoveToInvalidPosition(){
         
     }
+    
+    
     
     
     func testGetPossibleMakeValidMove(){

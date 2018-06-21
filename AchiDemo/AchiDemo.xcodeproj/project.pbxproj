@@ -40,6 +40,8 @@
 		2F6A82B120D786CA004EAE85 /* GameBoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB9A2720D747C400BA497A /* GameBoardError.swift */; };
 		2F87758220D3BADE008BAEAB /* LenChaoGameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F87758120D3BADE008BAEAB /* LenChaoGameBoard.swift */; };
 		2F87758420D3C3C4008BAEAB /* GameMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F87758320D3C3C4008BAEAB /* GameMove.swift */; };
+		2F96165D20DA977900216198 /* AchiBoardPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96165C20DA977900216198 /* AchiBoardPositionTests.swift */; };
+		2F96165F20DA979900216198 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96165E20DA979900216198 /* TestUtils.swift */; };
 		2FBDE64720D8FCC600596734 /* BoardGameContainerFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FBDE64520D8FCC600596734 /* BoardGameContainerFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FBDE64A20D8FCC600596734 /* BoardGameContainerFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBDE64320D8FCC600596734 /* BoardGameContainerFramework.framework */; };
 		2FBDE64B20D8FCC600596734 /* BoardGameContainerFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBDE64320D8FCC600596734 /* BoardGameContainerFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -118,6 +120,8 @@
 		2F6A82AE20D77596004EAE85 /* AchiPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiPlayer.swift; sourceTree = "<group>"; };
 		2F87758120D3BADE008BAEAB /* LenChaoGameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenChaoGameBoard.swift; sourceTree = "<group>"; };
 		2F87758320D3C3C4008BAEAB /* GameMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMove.swift; sourceTree = "<group>"; };
+		2F96165C20DA977900216198 /* AchiBoardPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiBoardPositionTests.swift; sourceTree = "<group>"; };
+		2F96165E20DA979900216198 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		2FBDE64320D8FCC600596734 /* BoardGameContainerFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoardGameContainerFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBDE64520D8FCC600596734 /* BoardGameContainerFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardGameContainerFramework.h; sourceTree = "<group>"; };
 		2FBDE64620D8FCC600596734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -234,8 +238,10 @@
 				2FCD8D7A208D054A006BC30A /* AchiDemoTests.swift */,
 				2FCD8D82208D0556006BC30A /* AchiGameBoardTests.swift */,
 				2F4EE7E320D5761200F75F6E /* AchiGameRulesEngineTests.swift */,
+				2F96165C20DA977900216198 /* AchiBoardPositionTests.swift */,
 				2F361A4220D5FB7B008DE8EA /* GameBoardFactoryTests.swift */,
 				2FCD8D7C208D054A006BC30A /* Info.plist */,
+				2F96165E20DA979900216198 /* TestUtils.swift */,
 			);
 			path = AchiDemoTests;
 			sourceTree = "<group>";
@@ -441,7 +447,9 @@
 				2F361A3D20D579B2008DE8EA /* GameBoardPosition.swift in Sources */,
 				2F361A4520D60010008DE8EA /* AchiGameRulesEngine.swift in Sources */,
 				2FCD8D83208D0556006BC30A /* AchiGameBoardTests.swift in Sources */,
+				2F96165D20DA977900216198 /* AchiBoardPositionTests.swift in Sources */,
 				2F6A82B120D786CA004EAE85 /* GameBoardError.swift in Sources */,
+				2F96165F20DA979900216198 /* TestUtils.swift in Sources */,
 				2F6A82B020D77614004EAE85 /* AchiPlayer.swift in Sources */,
 				2F361A4320D5FB7B008DE8EA /* GameBoardFactoryTests.swift in Sources */,
 				2F361A4720D60043008DE8EA /* AchiBoardPosition.swift in Sources */,

@@ -15,7 +15,33 @@ public class AchiGameRulesEngine : GameRulesEngine {
     
     public func getAllPossibleMovesForPlayer(gameBoard: GameBoard, gamePlayer: GamePlayer) -> [GameMove] {
         
-        return []
+        var allPossibleMoves = [[GameMove]]()
+        
+        // If a player has not placed all his coins on the table. Possibles moves must only include moves to place a coin in any open position on the board.
+        let allPositionsForPlayer = gameBoard.getAllPositionsForPlayer(player: gamePlayer)
+        
+        if allPositionsForPlayer.count < gameBoard.coinCountPerPlayer{
+            let allOpenPositions = gameBoard.getAllOpenPositions()
+            return allOpenPositions.map({ (eachPos) -> GameMove in
+                return GameMove(startPosition: nil, endPostion: eachPos, player: gamePlayer)
+            })
+        }
+        
+        allPossibleMoves = allPositionsForPlayer.map { (gamePosition) -> [GameMove] in
+            
+            let openPositions = gamePosition.adjacentOpenPositions(gameBoard: gameBoard)
+            
+            var allMovesForPosition = [GameMove]()
+            
+            for eachOpenPosition in openPositions{
+                let tempMove = GameMove(startPosition: eachOpenPosition, endPostion: eachOpenPosition, player: gamePlayer)
+                allMovesForPosition.append(tempMove)
+            }
+            
+            return allMovesForPosition
+        }
+        
+        return Array(allPossibleMoves.joined())
     }
     
     public func isValidMove(gameBoard: GameBoard, gameMove: GameMove) -> Bool {

@@ -9,6 +9,7 @@
 import Foundation
 
 public struct AchiBoardPosition : GameBoardPosition {
+    
     public var row: UInt8
     public var col: UInt8
     public var occupiedBy: GamePlayer?
@@ -19,3 +20,9 @@ public struct AchiBoardPosition : GameBoardPosition {
         self.occupiedBy = occupiedBy
     }
 }
+
+extension AchiBoardPosition : Equatable{
+    public static func == (lhs: AchiBoardPosition, rhs: AchiBoardPosition) -> Bool {
+        return (lhs.row == rhs.row && lhs.col == rhs.col && (lhs.occupiedBy as? AchiPlayer) == (rhs.occupiedBy as? AchiPlayer))
+    }
+}         

@@ -10,6 +10,5 @@ import Foundation
 import GameKit
 
 class AchiMove : NSObject, GKGameModelUpdate{
-    var value: Int = 0
-    
+    var value: Int = 0    
 }

@@ -11,12 +11,19 @@ import GameKit
 import SpriteKit
 
 public protocol GameBoard : GKGameModel {
+    
+    var rowCount : UInt8 {get}
+    var colCount : UInt8 {get}
+    var coinCountPerPlayer : UInt8 {get}
+    
+    subscript(row : UInt8, col : UInt8) -> GameBoardPosition? {get set}
 
 //    var chipPositions : [GameBoardPosition] {get}
     var gameRulesEngine : GameRulesEngine {get}
     var currentlyActivePlayer : GamePlayer {get set}
 
     func getAllPositions() -> [GameBoardPosition]
+    func getAllOpenPositions() -> [GameBoardPosition]
     func getAllPositionsForPlayer(player : GamePlayer) -> [GameBoardPosition]
     
     func make(move : GameMove) -> Bool

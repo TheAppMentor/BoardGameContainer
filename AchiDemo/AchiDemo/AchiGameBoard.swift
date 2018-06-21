@@ -18,8 +18,16 @@ public class AchiGameBoard : NSObject, GameBoard {
     
     public var currentlyActivePlayer : GamePlayer
     var allPlayers : [GamePlayer]
+    var redPlayer : GamePlayer{
+        return allPlayers.first!
+    }
+
+    var blackPlayer : GamePlayer{
+        return allPlayers.last!
+    }
+
     
-    subscript(row : UInt8, col : UInt8) -> GameBoardPosition? {
+    public subscript(row : UInt8, col : UInt8) -> GameBoardPosition? {
         get{
             let matchingPostions = chipPositions.filter({$0.row == row && $0.col == col})
             guard matchingPostions.count == 1 else {
@@ -66,6 +74,11 @@ public class AchiGameBoard : NSObject, GameBoard {
     public func getAllPositions() -> [GameBoardPosition] {
         return chipPositions
     }
+    
+    public func getAllOpenPositions() -> [GameBoardPosition]{
+        return chipPositions.filter {$0.occupiedBy == nil}
+    }
+
     
     public func getAllPositionsForPlayer(player : GamePlayer) -> [GameBoardPosition]{
         return chipPositions.filter({
@@ -182,7 +195,6 @@ extension AchiGameBoard : GKGameModel {
         
     }
     
-    
     /**
      * Returns an array of all the GKGameModelUpdates (i.e. actions/moves) that the active
      * player can undertake, with one instance of GKGameModelUpdate for each possible move.
@@ -192,8 +204,7 @@ extension AchiGameBoard : GKGameModel {
     public func gameModelUpdates(for player: GKGameModelPlayer) -> [GKGameModelUpdate]?{
         let allPossMoves = gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: self, gamePlayer: player as! GamePlayer)
         return allPossMoves
-    }
-    
+    }    
     
     /**
      * Applies a GKGameModelUpdate to the game model, potentially resulting in a new activePlayer.
