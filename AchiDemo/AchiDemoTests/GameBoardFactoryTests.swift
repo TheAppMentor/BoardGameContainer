@@ -31,7 +31,8 @@ class GameBoardFactoryTests: XCTestCase {
     }
     
     func testCreateGameBoardForAchiCheckCounts(){
-        let achiGameBoard = GameBoardFactory.createGameBoard(gameType: .AchiGame, players: [])
-        XCTAssertTrue(achiGameBoard?.getAllPositions().count == 9, "Incorrect Game Board Count")
+        
+        let achiGameBoard = TestUtils.createSimpleAchiGameBoard()
+        XCTAssertTrue(achiGameBoard.getAllPositions().count == 9, "Incorrect Game Board Count")
     }
 }

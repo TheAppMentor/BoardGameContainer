@@ -14,7 +14,7 @@ public class AchiGameBoard : NSObject, GameBoard {
     
     public let rowCount : UInt8 = 3
     public let colCount : UInt8 = 3
-    public let coinCountPerPlayer : UInt8 = 3
+    public let coinCountPerPlayer : UInt8 = 4
     
     public var currentlyActivePlayer : GamePlayer
     var allPlayers : [GamePlayer]
@@ -133,20 +133,20 @@ public class AchiGameBoard : NSObject, GameBoard {
     public func make(move : GameMove) -> Bool{
         
         // Check if Game Move From Position is valid.
-        if let fromPos = move.startPosition{
+        if let fromPos = move.startPos{
             guard isValidRowCol(row: fromPos.row, col: fromPos.col) else {
                 return false
             }
         }
         
         // Check if Game Move To Position is valid.
-        guard isValidRowCol(row: move.endPostion.row, col: move.endPostion.col) else {
+        guard isValidRowCol(row: move.endPos.row, col: move.endPos.col) else {
             return false
         }
         
         if gameRulesEngine.isValidMove(gameBoard: self, gameMove: move){
-            let newRow : UInt8 =  move.endPostion.row
-            let newCol : UInt8 =  move.endPostion.col
+            let newRow : UInt8 =  move.endPos.row
+            let newCol : UInt8 =  move.endPos.col
 
             let newGPos = AchiBoardPosition.init(row: newRow, col: newCol, occupiedBy: move.player)
             self[newRow,newCol] = newGPos

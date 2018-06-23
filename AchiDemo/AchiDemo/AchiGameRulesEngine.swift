@@ -23,7 +23,7 @@ public class AchiGameRulesEngine : GameRulesEngine {
         if allPositionsForPlayer.count < gameBoard.coinCountPerPlayer{
             let allOpenPositions = gameBoard.getAllOpenPositions()
             return allOpenPositions.map({ (eachPos) -> GameMove in
-                return GameMove(startPosition: nil, endPostion: eachPos, player: gamePlayer)
+                return GameMove(startPos: nil, endPos: eachPos, player: gamePlayer)
             })
         }
         
@@ -34,7 +34,7 @@ public class AchiGameRulesEngine : GameRulesEngine {
             var allMovesForPosition = [GameMove]()
             
             for eachOpenPosition in openPositions{
-                let tempMove = GameMove(startPosition: eachOpenPosition, endPostion: eachOpenPosition, player: gamePlayer)
+                let tempMove = GameMove(startPos: gamePosition, endPos: eachOpenPosition, player: gamePlayer)
                 allMovesForPosition.append(tempMove)
             }
             
@@ -60,13 +60,13 @@ public class AchiGameRulesEngine : GameRulesEngine {
         // If all coins were already placed on the board, (initial loading of the board).
         // From positions should not be nil.
         if numPostionForPlayer == (gameBoard as! AchiGameBoard).coinCountPerPlayer {
-            guard gameMove.startPosition != nil else {
+            guard gameMove.startPos != nil else {
                 return false
             }
         }
         
         // To Position should not be occupied.
-        guard let _ = try? gameBoard.isOccupied(gamePos: gameMove.endPostion) == false else {
+        guard let _ = try? gameBoard.isOccupied(gamePos: gameMove.endPos) == false else {
             return false
         }
         

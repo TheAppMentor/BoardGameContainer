@@ -26,6 +26,9 @@
 		2F361A4520D60010008DE8EA /* AchiGameRulesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099BB208B9146003D0750 /* AchiGameRulesEngine.swift */; };
 		2F361A4620D60032008DE8EA /* AchiGameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B32088C78000864DBE /* AchiGameBoard.swift */; };
 		2F361A4720D60043008DE8EA /* AchiBoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B52088C7AD00864DBE /* AchiBoardPosition.swift */; };
+		2F4176BE20DC94FA00C9B3DA /* AchiMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4176BD20DC94FA00C9B3DA /* AchiMove.swift */; };
+		2F4176C020DC94FA00C9B3DA /* AchiMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4176BD20DC94FA00C9B3DA /* AchiMove.swift */; };
+		2F4176C120DC990E00C9B3DA /* AchiMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4176BD20DC94FA00C9B3DA /* AchiMove.swift */; };
 		2F4EE7E420D5761200F75F6E /* AchiGameRulesEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EE7E320D5761200F75F6E /* AchiGameRulesEngineTests.swift */; };
 		2F63D5A22088C76800864DBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5A12088C76800864DBE /* AppDelegate.swift */; };
 		2F63D5A42088C76800864DBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5A32088C76800864DBE /* ViewController.swift */; };
@@ -34,7 +37,6 @@
 		2F63D5AC2088C76A00864DBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F63D5AA2088C76A00864DBE /* LaunchScreen.storyboard */; };
 		2F63D5B42088C78000864DBE /* AchiGameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B32088C78000864DBE /* AchiGameBoard.swift */; };
 		2F63D5B62088C7AD00864DBE /* AchiBoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B52088C7AD00864DBE /* AchiBoardPosition.swift */; };
-		2F63D5BA2088C82800864DBE /* AchiMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B92088C82800864DBE /* AchiMove.swift */; };
 		2F6A82AF20D77596004EAE85 /* AchiPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6A82AE20D77596004EAE85 /* AchiPlayer.swift */; };
 		2F6A82B020D77614004EAE85 /* AchiPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6A82AE20D77596004EAE85 /* AchiPlayer.swift */; };
 		2F6A82B120D786CA004EAE85 /* GameBoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB9A2720D747C400BA497A /* GameBoardError.swift */; };
@@ -56,7 +58,6 @@
 		2FBDE65820D8FD3A00596734 /* GameRulesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099B9208B9120003D0750 /* GameRulesEngine.swift */; };
 		2FBDE65920D8FD3A00596734 /* AchiGameRulesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099BB208B9146003D0750 /* AchiGameRulesEngine.swift */; };
 		2FBDE65A20D8FD3A00596734 /* AchiBoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B52088C7AD00864DBE /* AchiBoardPosition.swift */; };
-		2FBDE65B20D8FD3A00596734 /* AchiMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B92088C82800864DBE /* AchiMove.swift */; };
 		2FBDE65C20D8FD7800596734 /* GamePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099C3208BBC92003D0750 /* GamePlayer.swift */; };
 		2FBDE65D20D9047700596734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F63D5A82088C76A00864DBE /* Assets.xcassets */; };
 		2FCD8D7B208D054A006BC30A /* AchiDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCD8D7A208D054A006BC30A /* AchiDemoTests.swift */; };
@@ -105,6 +106,7 @@
 		2F3099C1208BAE67003D0750 /* GameBoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardPosition.swift; sourceTree = "<group>"; };
 		2F3099C3208BBC92003D0750 /* GamePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayer.swift; sourceTree = "<group>"; };
 		2F361A4220D5FB7B008DE8EA /* GameBoardFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardFactoryTests.swift; sourceTree = "<group>"; };
+		2F4176BD20DC94FA00C9B3DA /* AchiMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiMove.swift; sourceTree = "<group>"; };
 		2F4EE7E220D5744800F75F6E /* TrialPlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TrialPlayGround.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		2F4EE7E320D5761200F75F6E /* AchiGameRulesEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiGameRulesEngineTests.swift; sourceTree = "<group>"; };
 		2F63D59E2088C76800864DBE /* AchiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AchiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +118,6 @@
 		2F63D5AD2088C76A00864DBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F63D5B32088C78000864DBE /* AchiGameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiGameBoard.swift; sourceTree = "<group>"; };
 		2F63D5B52088C7AD00864DBE /* AchiBoardPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiBoardPosition.swift; sourceTree = "<group>"; };
-		2F63D5B92088C82800864DBE /* AchiMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiMove.swift; sourceTree = "<group>"; };
 		2F6A82AE20D77596004EAE85 /* AchiPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiPlayer.swift; sourceTree = "<group>"; };
 		2F87758120D3BADE008BAEAB /* LenChaoGameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenChaoGameBoard.swift; sourceTree = "<group>"; };
 		2F87758320D3C3C4008BAEAB /* GameMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMove.swift; sourceTree = "<group>"; };
@@ -211,10 +212,10 @@
 				2F3099BF208BAA60003D0750 /* GameType.swift */,
 				2F6A82AE20D77596004EAE85 /* AchiPlayer.swift */,
 				2F87758320D3C3C4008BAEAB /* GameMove.swift */,
+				2F4176BD20DC94FA00C9B3DA /* AchiMove.swift */,
 				2F3099B9208B9120003D0750 /* GameRulesEngine.swift */,
 				2F3099BB208B9146003D0750 /* AchiGameRulesEngine.swift */,
 				2F63D5B52088C7AD00864DBE /* AchiBoardPosition.swift */,
-				2F63D5B92088C82800864DBE /* AchiMove.swift */,
 				2F63D5A52088C76800864DBE /* Main.storyboard */,
 				2F63D5A82088C76A00864DBE /* Assets.xcassets */,
 				2F63D5AA2088C76A00864DBE /* LaunchScreen.storyboard */,
@@ -406,8 +407,8 @@
 				2F87758420D3C3C4008BAEAB /* GameMove.swift in Sources */,
 				2F63D5A22088C76800864DBE /* AppDelegate.swift in Sources */,
 				2F3099B8208B8EDB003D0750 /* GameBoard.swift in Sources */,
+				2F4176BE20DC94FA00C9B3DA /* AchiMove.swift in Sources */,
 				2F63D5B42088C78000864DBE /* AchiGameBoard.swift in Sources */,
-				2F63D5BA2088C82800864DBE /* AchiMove.swift in Sources */,
 				2F3099B6208B8D20003D0750 /* GameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,10 +422,10 @@
 				2FBDE65920D8FD3A00596734 /* AchiGameRulesEngine.swift in Sources */,
 				2FBDE65620D8FD3A00596734 /* AchiPlayer.swift in Sources */,
 				2FBDE65720D8FD3A00596734 /* GameMove.swift in Sources */,
-				2FBDE65B20D8FD3A00596734 /* AchiMove.swift in Sources */,
 				2FBDE65C20D8FD7800596734 /* GamePlayer.swift in Sources */,
 				2FBDE65320D8FD3A00596734 /* AchiGameBoard.swift in Sources */,
 				2FBDE65120D8FD3A00596734 /* GameBoard.swift in Sources */,
+				2F4176C020DC94FA00C9B3DA /* AchiMove.swift in Sources */,
 				2FBDE65420D8FD3A00596734 /* GameBoardPosition.swift in Sources */,
 				2FBDE65020D8FD3A00596734 /* GameBoardFactory.swift in Sources */,
 				2FBDE65A20D8FD3A00596734 /* AchiBoardPosition.swift in Sources */,
@@ -440,6 +441,7 @@
 				2F361A4420D5FFE4008DE8EA /* GameMove.swift in Sources */,
 				2F4EE7E420D5761200F75F6E /* AchiGameRulesEngineTests.swift in Sources */,
 				2F361A4620D60032008DE8EA /* AchiGameBoard.swift in Sources */,
+				2F4176C120DC990E00C9B3DA /* AchiMove.swift in Sources */,
 				2F361A3F20D579C7008DE8EA /* GameType.swift in Sources */,
 				2F361A4020D57A1E008DE8EA /* GameBoardFactory.swift in Sources */,
 				2FCD8D7B208D054A006BC30A /* AchiDemoTests.swift in Sources */,

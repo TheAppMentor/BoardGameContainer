@@ -48,7 +48,7 @@ extension GameBoardPosition{
         }
         
         // Get all from Next Row
-        if row <= gameBoard.rowCount - 1{
+        if row < gameBoard.rowCount - 1{
             fetchAllColumnsAroundRow(row : row + 1)
         }
         
@@ -63,18 +63,3 @@ extension GameBoardPosition{
         return self.adjacentPositions(gameBoard: gameBoard).filter({$0.occupiedBy == nil})
     }
 }
-
-//extension GameBoardPosition {
-//    static func < (lhs: GameBoardPosition, rhs: GameBoardPosition) -> Bool {
-//        
-//        if lhs.row == rhs.row {
-//            return lhs.col < rhs.col
-//        }
-//        
-//        return lhs.row < rhs.row
-//    }
-//    
-//    static func == (lhs: GameBoardPosition, rhs: GameBoardPosition) -> Bool {
-//        return (lhs.row == rhs.row && lhs.col == rhs.col)
-//    }
-//}
