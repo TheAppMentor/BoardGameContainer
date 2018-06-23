@@ -64,6 +64,11 @@ public class AchiGameRulesEngine : GameRulesEngine {
                 return false
             }
         }
+
+        // If Destination is occuiped return false.
+        guard try! gameBoard.isOccupied(gamePos: gameMove.endPos) == false else {
+            return false
+        }
         
         // To Position should not be occupied.
         guard let _ = try? gameBoard.isOccupied(gamePos: gameMove.endPos) == false else {

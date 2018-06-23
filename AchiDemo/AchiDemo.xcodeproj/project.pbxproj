@@ -25,7 +25,7 @@
 		2F361A4420D5FFE4008DE8EA /* GameMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F87758320D3C3C4008BAEAB /* GameMove.swift */; };
 		2F361A4520D60010008DE8EA /* AchiGameRulesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3099BB208B9146003D0750 /* AchiGameRulesEngine.swift */; };
 		2F361A4620D60032008DE8EA /* AchiGameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B32088C78000864DBE /* AchiGameBoard.swift */; };
-		2F361A4720D60043008DE8EA /* AchiBoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B52088C7AD00864DBE /* AchiBoardPosition.swift */; };
+		2F3F903520DE1ECC002F4D8B /* AchiBoardPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63D5B52088C7AD00864DBE /* AchiBoardPosition.swift */; };
 		2F4176BE20DC94FA00C9B3DA /* AchiMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4176BD20DC94FA00C9B3DA /* AchiMove.swift */; };
 		2F4176C020DC94FA00C9B3DA /* AchiMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4176BD20DC94FA00C9B3DA /* AchiMove.swift */; };
 		2F4176C120DC990E00C9B3DA /* AchiMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4176BD20DC94FA00C9B3DA /* AchiMove.swift */; };
@@ -454,7 +454,7 @@
 				2F96165F20DA979900216198 /* TestUtils.swift in Sources */,
 				2F6A82B020D77614004EAE85 /* AchiPlayer.swift in Sources */,
 				2F361A4320D5FB7B008DE8EA /* GameBoardFactoryTests.swift in Sources */,
-				2F361A4720D60043008DE8EA /* AchiBoardPosition.swift in Sources */,
+				2F3F903520DE1ECC002F4D8B /* AchiBoardPosition.swift in Sources */,
 				2F361A4120D57A77008DE8EA /* GamePlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

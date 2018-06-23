@@ -18,6 +18,7 @@ public class AchiGameBoard : NSObject, GameBoard {
     
     public var currentlyActivePlayer : GamePlayer
     var allPlayers : [GamePlayer]
+    
     var redPlayer : GamePlayer{
         return allPlayers.first!
     }
@@ -25,7 +26,13 @@ public class AchiGameBoard : NSObject, GameBoard {
     var blackPlayer : GamePlayer{
         return allPlayers.last!
     }
-
+    
+    func getOtherPlayer() -> GamePlayer{
+        if (currentlyActivePlayer as! AchiPlayer) == (redPlayer as! AchiPlayer) {
+            return blackPlayer
+        }
+        return redPlayer
+    }
     
     public subscript(row : UInt8, col : UInt8) -> GameBoardPosition? {
         get{
@@ -50,11 +57,8 @@ public class AchiGameBoard : NSObject, GameBoard {
     
     public func isOccupied(gamePos : GameBoardPosition) throws -> Bool{
 
-        let row = gamePos.row
-        let col = gamePos.col
-        
-        if isValidRowCol(row: row, col: col){
-            return self[row,col]?.occupiedBy != nil
+        if isValidRowCol(row: gamePos.row, col: gamePos.col){
+            return self[gamePos.row,gamePos.col]?.occupiedBy != nil
         }
         throw GameBoardError.invalidPosition
     }
@@ -150,7 +154,7 @@ public class AchiGameBoard : NSObject, GameBoard {
 
             let newGPos = AchiBoardPosition.init(row: newRow, col: newCol, occupiedBy: move.player)
             self[newRow,newCol] = newGPos
-            currentlyActivePlayer = move.player
+            currentlyActivePlayer = getOtherPlayer()
             return true
         }
         
