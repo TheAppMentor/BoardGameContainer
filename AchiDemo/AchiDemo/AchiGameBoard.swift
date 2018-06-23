@@ -155,6 +155,13 @@ public class AchiGameBoard : NSObject, GameBoard {
             let newGPos = AchiBoardPosition.init(row: newRow, col: newCol, occupiedBy: move.player)
             self[newRow,newCol] = newGPos
             currentlyActivePlayer = getOtherPlayer()
+            
+            // Empty the spot we just moved from.
+            if let startPos = move.startPos{
+                let oldGPos = AchiBoardPosition.init(row: startPos.row, col: startPos.col, occupiedBy: nil)
+                self[startPos.row,startPos.col] = oldGPos
+            }
+
             return true
         }
         

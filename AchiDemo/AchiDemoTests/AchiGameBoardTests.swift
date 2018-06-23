@@ -199,49 +199,65 @@ class AchiGameBoardTests: XCTestCase {
     
     func testMakeMove_ALL_PLACED_SIMPLE_MOVE_BLACK(){
         
-        /*
-         B - B - R
-         B - B - R
-         R - R - 0
-         */
+        /*      B - B - R
+                B - B - R
+                R - R - 0         */
 
         let achiBoard = TestUtils.createSimpleAchiGameBoard()
         achiBoard.currentlyActivePlayer = achiBoard.blackPlayer
         
         let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 0, col: 0, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
-        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 2, col: 2, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 0, col: 2, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 1, col: 0, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 2, col: 0, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 0, col: 1, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 1, col: 2, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
         let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 1, col: 1, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
-        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 1, col: 0, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
-        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 2, col: 0, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
-        
-        let validMove = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 2, col: 1, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
-        let inValidMove = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 2, col: 2, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
-        
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 2, col: 1, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+
+        let totalMovesForBlack = achiBoard.gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: achiBoard, gamePlayer: achiBoard.blackPlayer).count
+        let validMove = achiBoard.make(move: GameMove(startPos: AchiBoardPosition(row: 1, col: 1, occupiedBy: achiBoard.blackPlayer), endPos: AchiBoardPosition(row: 2, col: 2, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
+        let inValidMove = achiBoard.make(move: GameMove(startPos: AchiBoardPosition(row: 0, col: 0, occupiedBy: achiBoard.blackPlayer), endPos: AchiBoardPosition(row: 2, col: 2, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
+
+
         XCTAssertTrue(validMove == true, "Invalid Game Move")
         XCTAssertTrue(inValidMove == false, "Invalid Game Move")
+        XCTAssertTrue(totalMovesForBlack == 1, "Invalid Possible Moves for Black.")
         
-        let checkPosOldBlack1 = achiBoard[0,0] as! AchiBoardPosition
-        let checkPosOldBlack2 = achiBoard[1,1] as! AchiBoardPosition
-        let checkPosOldBlack3 = achiBoard[2,0] as! AchiBoardPosition
-        
-        let checkPosOldRed1 = achiBoard[2,2] as! AchiBoardPosition
-        let checkPosOldRed2 = achiBoard[1,0] as! AchiBoardPosition
-        let checkPosNowMoved = achiBoard[2,1] as! AchiBoardPosition
-        
-        XCTAssertTrue(checkPosOldBlack1 == AchiBoardPosition(row: 0, col: 0, occupiedBy: achiBoard.blackPlayer), "Incorrect Initial Move")
-        XCTAssertTrue(checkPosOldBlack2 == AchiBoardPosition(row: 1, col: 1, occupiedBy: achiBoard.blackPlayer), "Incorrect Initial Move")
-        XCTAssertTrue(checkPosOldBlack3 == AchiBoardPosition(row: 2, col: 0, occupiedBy: achiBoard.blackPlayer), "Incorrect Initial Move")
-        
-        XCTAssertTrue(checkPosOldRed1 == AchiBoardPosition(row: 2, col: 2, occupiedBy: achiBoard.redPlayer), "Incorrect Initial Move")
-        XCTAssertTrue(checkPosOldRed2 == AchiBoardPosition(row: 1, col: 0, occupiedBy: achiBoard.redPlayer), "Incorrect Initial Move")
-        XCTAssertTrue(checkPosNowMoved == AchiBoardPosition(row: 2, col: 1, occupiedBy: achiBoard.redPlayer), "Incorrect Initial Move")
-        
-        XCTAssertTrue(achiBoard.getAllPositionsForPlayer(player: achiBoard.blackPlayer).count == 3 , "Incorrect Position count for Black player")
-        XCTAssertTrue(achiBoard.getAllPositionsForPlayer(player: achiBoard.redPlayer).count == 3 , "Incorrect Position count for red player")
+        XCTAssertTrue(achiBoard.getAllPositionsForPlayer(player: achiBoard.blackPlayer).count == 4 , "Incorrect Position count Black Expected 4 , was \(achiBoard.getAllPositionsForPlayer(player: achiBoard.blackPlayer).count)")
+        XCTAssertTrue(achiBoard.getAllPositionsForPlayer(player: achiBoard.redPlayer).count == 4 , "Incorrect Position count for red player")
     }
 
     func testMakeMove_ALL_PLACED_SIMPLE_MOVE_RED(){
+        /*      B - B - R
+                B - 0 - R
+                R - R - B         */
         
+        let achiBoard = TestUtils.createSimpleAchiGameBoard()
+        achiBoard.currentlyActivePlayer = achiBoard.blackPlayer
+        
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 0, col: 0, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 0, col: 2, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 1, col: 0, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 2, col: 0, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 0, col: 1, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 1, col: 2, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 1, col: 1, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: nil, endPos: AchiBoardPosition(row: 2, col: 1, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+        let _ = achiBoard.make(move: GameMove(startPos: AchiBoardPosition(row: 1, col: 1, occupiedBy: achiBoard.blackPlayer), endPos: AchiBoardPosition(row: 2, col: 2, occupiedBy: achiBoard.blackPlayer), player: achiBoard.blackPlayer))
+        
+        let totalMovesForRed = achiBoard.gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: achiBoard, gamePlayer: achiBoard.redPlayer).count
+        let validMove = achiBoard.make(move: GameMove(startPos: AchiBoardPosition(row: 1, col: 2, occupiedBy: achiBoard.blackPlayer), endPos: AchiBoardPosition(row: 1, col: 1, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+        let inValidMove = achiBoard.make(move: GameMove(startPos: AchiBoardPosition(row: 0, col: 2, occupiedBy: achiBoard.blackPlayer), endPos: AchiBoardPosition(row: 1, col: 2, occupiedBy: achiBoard.redPlayer), player: achiBoard.redPlayer))
+        
+        
+        XCTAssertTrue(validMove == true, "Invalid Game Move")
+        XCTAssertTrue(inValidMove == false, "Invalid Game Move")
+        XCTAssertTrue(totalMovesForRed == 4, "Invalid Possible Moves for Black.")
+        
+        XCTAssertTrue(achiBoard.getAllPositionsForPlayer(player: achiBoard.blackPlayer).count == 4 , "Incorrect Position count Black Expected 4 , was \(achiBoard.getAllPositionsForPlayer(player: achiBoard.blackPlayer).count)")
+        XCTAssertTrue(achiBoard.getAllPositionsForPlayer(player: achiBoard.redPlayer).count == 4 , "Incorrect Position count for red player")
+
     }
 
     func testMakeMove_ALL_PLACED_MOVE_FOR_WIN_BLACK(){
