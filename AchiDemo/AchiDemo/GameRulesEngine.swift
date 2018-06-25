@@ -11,4 +11,5 @@ import Foundation
 public protocol GameRulesEngine {
     func isValidMove(gameBoard : GameBoard, gameMove : GameMove) -> Bool
     func getAllPossibleMovesForPlayer(gameBoard : GameBoard, gamePlayer : GamePlayer) -> [GameMove]
+    func evaluateBoardState(gameBoard : GameBoard) -> GameState
 }

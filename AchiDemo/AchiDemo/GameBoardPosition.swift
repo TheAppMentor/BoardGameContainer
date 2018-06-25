@@ -21,7 +21,6 @@ public protocol GameBoardPosition {
 extension GameBoardPosition{
     
     public func adjacentPositions(gameBoard : GameBoard) -> [GameBoardPosition]{
-
         return Array(adjacentAllPositionsAround(gameBoard: gameBoard).filter { return ($0.row != self.row || $0.col != self.col)})        
     }
 
@@ -57,9 +56,9 @@ extension GameBoardPosition{
         
         return fetchedPositions
     }
-
     
     public func adjacentOpenPositions(gameBoard : GameBoard) -> [GameBoardPosition]{
         return self.adjacentPositions(gameBoard: gameBoard).filter({$0.occupiedBy == nil})
     }
+    
 }

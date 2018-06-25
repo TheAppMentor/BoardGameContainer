@@ -17,12 +17,7 @@ class AchiGameRulesEngineTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
@@ -109,6 +104,37 @@ class AchiGameRulesEngineTests: XCTestCase {
         XCTAssertTrue(self.hasGameMove(gameMovesArr: allGameModelUpdates,
                                        refMove: GameMove(startPos: AchiBoardPosition(row: 2, col: 1, occupiedBy: gameBoard.redPlayer), endPos: AchiBoardPosition(row: 2, col: 2, occupiedBy: gameBoard.redPlayer), player: gameBoard.redPlayer)))
 
+        XCTAssertTrue(self.hasGameMove(gameMovesArr: allGameModelUpdates,
+                                       refMove: GameMove(startPos: AchiBoardPosition(row: 1, col: 2, occupiedBy: gameBoard.redPlayer), endPos: AchiBoardPosition(row: 2, col: 2, occupiedBy: gameBoard.redPlayer), player: gameBoard.redPlayer)))
+    }
+
+
+    func testEvaluateGameStateGameContinues(){
+        
+        /*
+         B - B - R
+         B - B - R
+         R - R - 0
+         */
+        let gameBoard = TestUtils.createSimpleAchiGameBoard()
+        
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 0, col: 0, occupiedBy: gameBoard.blackPlayer))
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 0, col: 1, occupiedBy: gameBoard.blackPlayer))
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 1, col: 0, occupiedBy: gameBoard.blackPlayer))
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 1, col: 1, occupiedBy: gameBoard.blackPlayer))
+        
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 0, col: 2, occupiedBy: gameBoard.redPlayer))
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 1, col: 2, occupiedBy: gameBoard.redPlayer))
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 2, col: 0, occupiedBy: gameBoard.redPlayer))
+        try? gameBoard.updatePosition(position: AchiBoardPosition.init(row: 2, col: 1, occupiedBy: gameBoard.redPlayer))
+        
+        let allGameModelUpdates = gameBoard.gameModelUpdates(for: gameBoard.redPlayer) as! [AchiMove]
+        
+        XCTAssertTrue(allGameModelUpdates.count == 2,"Should be 2.. it is -> \(allGameModelUpdates.count)")
+        
+        XCTAssertTrue(self.hasGameMove(gameMovesArr: allGameModelUpdates,
+                                       refMove: GameMove(startPos: AchiBoardPosition(row: 2, col: 1, occupiedBy: gameBoard.redPlayer), endPos: AchiBoardPosition(row: 2, col: 2, occupiedBy: gameBoard.redPlayer), player: gameBoard.redPlayer)))
+        
         XCTAssertTrue(self.hasGameMove(gameMovesArr: allGameModelUpdates,
                                        refMove: GameMove(startPos: AchiBoardPosition(row: 1, col: 2, occupiedBy: gameBoard.redPlayer), endPos: AchiBoardPosition(row: 2, col: 2, occupiedBy: gameBoard.redPlayer), player: gameBoard.redPlayer)))
     }

@@ -15,6 +15,11 @@ public class AchiGameBoard : NSObject, GameBoard {
     public let rowCount : UInt8 = 3
     public let colCount : UInt8 = 3
     public let coinCountPerPlayer : UInt8 = 4
+    public var consecutivePositions : [[GameBoardPosition]]{
+        return _consecutivePositions
+    }
+    
+    private lazy var _consecutivePositions :  [[GameBoardPosition]] = []
     
     public var currentlyActivePlayer : GamePlayer
     var allPlayers : [GamePlayer]
@@ -25,6 +30,46 @@ public class AchiGameBoard : NSObject, GameBoard {
 
     var blackPlayer : GamePlayer{
         return allPlayers.last!
+    }
+
+    public init(rulesEngine : GameRulesEngine, players : [GamePlayer]) {
+        self.gameRulesEngine = rulesEngine
+        
+        for row in 0..<rowCount{
+            for col in 0..<colCount{
+                let gamePosition = AchiBoardPosition.init(row: row, col: col, occupiedBy: nil)
+                chipPositions.append(gamePosition)
+            }
+        }
+        
+        //Set currently active player. Right now we are choosing one of the players at Random.
+        self.allPlayers = players
+        self.currentlyActivePlayer = players.randomElement()!
+        
+        super.init()
+        _consecutivePositions = getConsecutivePositions()
+    }
+    
+    public func evaluateGameStateForBoard() -> GameState {
+        return gameRulesEngine.evaluateBoardState(gameBoard: self)
+    }
+    
+    func evaluateScoreForBoard(player : GamePlayer) -> Int{
+        
+        // 10 -> Best State .. (Win for Player)
+        //  0 -> Bad State for Player (Loss For Player)
+
+        switch evaluateGameStateForBoard() {
+
+        case .GameContinues:
+            return 5
+
+        case .GameOverIsWinForPlayer(let winningPlayer):
+           return (winningPlayer.playerId == player.playerId) ? 10 : 0
+
+        case .GameOverDraw:
+            return 5
+        }
     }
     
     func getOtherPlayer() -> GamePlayer{
@@ -99,7 +144,6 @@ public class AchiGameBoard : NSObject, GameBoard {
     }
     
     public func getSpriteNodeForGameBoard(size: CGSize) -> SKSpriteNode? {
-        
         return nil
     }
     
@@ -117,21 +161,6 @@ public class AchiGameBoard : NSObject, GameBoard {
         
         for eachPosition in chipPositions {
         }
-    }
-    
-    public init(rulesEngine : GameRulesEngine, players : [GamePlayer]) {
-        self.gameRulesEngine = rulesEngine
-        
-        for row in 0..<rowCount{
-            for col in 0..<colCount{
-                let gamePosition = AchiBoardPosition.init(row: row, col: col, occupiedBy: nil)
-                chipPositions.append(gamePosition)
-            }
-        }
-        
-        //Set currently active player. Right now we are choosing one of the players at Random.
-        self.allPlayers = players
-        self.currentlyActivePlayer = players.randomElement()!
     }
     
     public func make(move : GameMove) -> Bool{
@@ -161,12 +190,43 @@ public class AchiGameBoard : NSObject, GameBoard {
                 let oldGPos = AchiBoardPosition.init(row: startPos.row, col: startPos.col, occupiedBy: nil)
                 self[startPos.row,startPos.col] = oldGPos
             }
-
             return true
         }
-        
         return false
     }
+    
+    private func getConsecutivePositions() -> [[GameBoardPosition]]{
+        
+        var allLines = [[GameBoardPosition]]()
+        
+            // Make all Horizontal Lines.
+            for eachRow in 0..<self.rowCount{
+                var tempArr = [GameBoardPosition]()
+                for eachCol in 0..<self.colCount{
+                    tempArr.append(AchiBoardPosition(row: eachRow, col: eachCol, occupiedBy: nil))
+                }
+                allLines.append(tempArr)
+            }
+            
+            // Make all Vertical Lines.
+            for eachCol in 0..<self.colCount{
+                var tempArr = [GameBoardPosition]()
+                for eachRow in 0..<self.rowCount{
+                    tempArr.append(AchiBoardPosition(row: eachRow, col: eachCol, occupiedBy: nil))
+                }
+                allLines.append(tempArr)
+            }
+            
+            // Make all Diagonal Lines.
+            let diag1  = [AchiBoardPosition(row: 0, col: 0, occupiedBy: nil), AchiBoardPosition(row: 1, col: 1, occupiedBy: nil),AchiBoardPosition(row: 2, col: 2, occupiedBy: nil)]
+            let diag2  = [AchiBoardPosition(row: 0, col:2 , occupiedBy: nil), AchiBoardPosition(row: 1, col: 1, occupiedBy: nil),AchiBoardPosition(row: 2, col: 0, occupiedBy: nil)]
+            
+            allLines.append(diag1)
+            allLines.append(diag2)
+        
+        return allLines
+    }
+
 }
 
 
@@ -224,9 +284,15 @@ extension AchiGameBoard : GKGameModel {
      * a move on behalf of the player identified by the activePlayer property.
      */
     public func apply(_ gameModelUpdate: GKGameModelUpdate){
-        
+        if let gameMove = gameModelUpdate as? GameMove{
+            let moveResult = make(move: gameMove)
+            if moveResult == false{
+                assertionFailure("Apply game Model update failed.")
+            }
+        }else{
+            assertionFailure("Apply game Model update failed. ==> Could not type case GameModelUpdate to GAMEMOVE.")
+        }
     }
-    
     
     /**
      * Returns the score for the specified player. A higher value indicates a better position for
@@ -235,16 +301,25 @@ extension AchiGameBoard : GKGameModel {
      * not a part of the game model, returns NSIntegerMin.
      */
     public func score(for player: GKGameModelPlayer) -> Int{
-        return 0
+        guard let player = player as? GamePlayer else {
+            return Int(INT8_MIN)
+        }
+        return evaluateScoreForBoard(player: player)
     }
-    
     
     /**
      * Returns YES if the specified player has reached a win state, NO if otherwise. Note that NO does not
      * necessarily mean that the player has lost. Optionally used by GKMinmaxStrategist to improve move selection.
      */
     public func isWin(for player: GKGameModelPlayer) -> Bool{
-        return false
+        let boardState = evaluateGameStateForBoard()
+        
+        switch boardState {
+        case .GameOverIsWinForPlayer(let winningPlayer):
+            return winningPlayer.playerId == player.playerId
+        default:
+            return false
+        }
     }
     
     /**
@@ -252,7 +327,16 @@ extension AchiGameBoard : GKGameModel {
      * necessarily mean that the player has won. Optionally used by GKMinmaxStrategist to improve move selection.
      */
     public func isLoss(for player: GKGameModelPlayer) -> Bool{
-        return false
+
+        let boardState = evaluateGameStateForBoard()
+
+        switch boardState {
+        case .GameOverIsWinForPlayer(let winningPlayer):
+            //TODO: Watch out.. this will fail if we have more than one player in a game.
+            return winningPlayer.playerId != player.playerId
+        default:
+            return false
+        }
     }
     
     

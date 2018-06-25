@@ -64,7 +64,7 @@ public class AchiGameRulesEngine : GameRulesEngine {
                 return false
             }
         }
-
+        
         // If Destination is occuiped return false.
         guard try! gameBoard.isOccupied(gamePos: gameMove.endPos) == false else {
             return false
@@ -77,4 +77,54 @@ public class AchiGameRulesEngine : GameRulesEngine {
         
         return true
     }
+    
+    public func evaluateBoardState(gameBoard: GameBoard) -> GameState {
+        
+        switch checkBoardStateForDraw(gameBoard: gameBoard) {
+        case .GameOverDraw:
+            return GameState.GameOverDraw
+        default:
+            break
+        }
+        
+        return checkBoardStateForWin(gameBoard: gameBoard)
+    }
+    
+    private func checkBoardStateForWin(gameBoard : GameBoard) -> GameState{
+        
+        if let gameBoard = gameBoard as? AchiGameBoard {
+            
+            for eachLine in gameBoard.consecutivePositions{
+
+                let row0 = eachLine[0].row, row1 = eachLine[1].row, row2 = eachLine[2].row
+                let col0 = eachLine[0].col, col1 = eachLine[1].col, col2 = eachLine[2].col
+                
+                guard (gameBoard[row0,col0]?.occupiedBy as? AchiPlayer) != nil else { continue }
+                guard (gameBoard[row1,col1]?.occupiedBy as? AchiPlayer) != nil else { continue }
+                guard (gameBoard[row2,col2]?.occupiedBy as? AchiPlayer) != nil else { continue }
+
+                if (gameBoard[row0,col0]?.occupiedBy as? AchiPlayer) == (gameBoard[row1,col1]?.occupiedBy as? AchiPlayer){
+                    if (gameBoard[row1,col1]?.occupiedBy as? AchiPlayer) == (gameBoard[row2,col2]?.occupiedBy as? AchiPlayer){
+                        return GameState.GameOverIsWinForPlayer((gameBoard[2,2]?.occupiedBy)!)
+                    }
+                    continue
+                }
+            }
+        }
+        
+        return GameState.GameContinues
+    }
+    
+    private func checkBoardStateForDraw(gameBoard : GameBoard) -> GameState{
+        
+        for eachPlayer in (gameBoard.players as! [AchiPlayer]){
+            if getAllPossibleMovesForPlayer(gameBoard: gameBoard, gamePlayer: eachPlayer).count > 0 {
+                return GameState.GameContinues
+            }
+        }
+        
+        return GameState.GameOverDraw
+    }
+    
+    
 }

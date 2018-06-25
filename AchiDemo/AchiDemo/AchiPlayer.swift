@@ -40,7 +40,6 @@ public class AchiPlayer: NSObject, GamePlayer {
 extension AchiPlayer {
     public static func ==(lhs : AchiPlayer, rhs : AchiPlayer) -> Bool {
         return lhs.playerId == rhs.playerId
-        
     }
 }
 
