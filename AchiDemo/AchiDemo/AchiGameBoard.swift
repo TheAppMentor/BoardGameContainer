@@ -51,7 +51,7 @@ public class AchiGameBoard : NSObject, GameBoard {
     }
     
     public func evaluateGameStateForBoard() -> GameState {
-        return evaluateBoardState(gameBoard: self)
+        return gameRulesEngine.evaluateBoardState(gameBoard: self)
     }
     
     func evaluateScoreForBoard(player : GamePlayer) -> Int{
@@ -170,13 +170,13 @@ public class AchiGameBoard : NSObject, GameBoard {
     public func make(move : GameMove) -> Bool{
         
         // Check if Game Move From Position is valid.
-        guard let fromPos = move.startPos else {
-            return false
-        }
+//        guard let fromPos = move.startPos else {
+//            return false
+//        }
         
-        guard isValidRowCol(row: fromPos.row, col: fromPos.col) else {
-            return false
-        }
+//        guard isValidRowCol(row: fromPos.row, col: fromPos.col) else {
+//            return false
+//        }
         
         // Check if Game Move To Position is valid.
         guard isValidRowCol(row: move.endPos.row, col: move.endPos.col) else {
@@ -191,10 +191,9 @@ public class AchiGameBoard : NSObject, GameBoard {
             currentlyActivePlayer = getOtherPlayer()
             
             // Empty the spot we just moved from.
-            guard let startPos = move.startPos else {
-                return false
+            if let startPos = move.startPos {
+                self[startPos.row,startPos.col] = AchiBoardPosition.init(row: startPos.row, col: startPos.col, occupiedBy: nil)
             }
-            self[startPos.row,startPos.col] = AchiBoardPosition.init(row: startPos.row, col: startPos.col, occupiedBy: nil)
 
             return true
         }
@@ -423,54 +422,5 @@ extension AchiGameBoard : GKGameModel {
             return CGFloat(theMovesThatSuck.count/allPossMoves.count)
         }
         return 0.0
-    }
-
-    public func evaluateBoardState(gameBoard: GameBoard) -> GameState {
-        
-        switch checkBoardStateForDraw(gameBoard: gameBoard) {
-        case .GameOverDraw:
-            return GameState.GameOverDraw
-        default:
-            break
-        }
-        
-        return checkBoardStateForWin(gameBoard: gameBoard)
-    }
-    
-    private func checkBoardStateForWin(gameBoard : GameBoard) -> GameState{
-        
-        if let gameBoard = gameBoard as? AchiGameBoard {
-            
-            for eachLine in gameBoard.consecutivePositions{
-                
-                let row0 = eachLine[0].row, row1 = eachLine[1].row, row2 = eachLine[2].row
-                let col0 = eachLine[0].col, col1 = eachLine[1].col, col2 = eachLine[2].col
-                
-                guard (gameBoard[row0,col0]?.occupiedBy as? AchiPlayer) != nil else { continue }
-                guard (gameBoard[row1,col1]?.occupiedBy as? AchiPlayer) != nil else { continue }
-                guard (gameBoard[row2,col2]?.occupiedBy as? AchiPlayer) != nil else { continue }
-                
-                if (gameBoard[row0,col0]?.occupiedBy as? AchiPlayer) == (gameBoard[row1,col1]?.occupiedBy as? AchiPlayer){
-                    if (gameBoard[row1,col1]?.occupiedBy as? AchiPlayer) == (gameBoard[row2,col2]?.occupiedBy as? AchiPlayer){
-                        return GameState.GameOverIsWinForPlayer((gameBoard[2,2]?.occupiedBy)!)
-                    }
-                    continue
-                }
-            }
-        }
-        
-        return GameState.GameContinues
-    }
-    
-    private func checkBoardStateForDraw(gameBoard : GameBoard) -> GameState{
-        
-        for eachPlayer in (gameBoard.players as! [AchiPlayer]){
-            if gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: gameBoard, gamePlayer: eachPlayer).count > 0 {
-                return GameState.GameContinues
-            }
-        }
-        
-        return GameState.GameOverDraw
-    }
-    
+    }    
 }
