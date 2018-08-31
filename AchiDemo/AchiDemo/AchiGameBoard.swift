@@ -51,7 +51,7 @@ public class AchiGameBoard : NSObject, GameBoard {
     }
     
     public func evaluateGameStateForBoard() -> GameState {
-        return gameRulesEngine.evaluateBoardState(gameBoard: self)
+        return evaluateBoardState(gameBoard: self)
     }
     
     func evaluateScoreForBoard(player : GamePlayer) -> Int{
@@ -62,6 +62,10 @@ public class AchiGameBoard : NSObject, GameBoard {
         switch evaluateGameStateForBoard() {
 
         case .GameContinues:
+            // Return a more refined score here. Need to check which of the players has an advantage.
+            // Number of Moves to Win for Player.
+            // Number of Moves to Win for opposnet.
+
             return 5
 
         case .GameOverIsWinForPlayer(let winningPlayer):
@@ -166,10 +170,12 @@ public class AchiGameBoard : NSObject, GameBoard {
     public func make(move : GameMove) -> Bool{
         
         // Check if Game Move From Position is valid.
-        if let fromPos = move.startPos{
-            guard isValidRowCol(row: fromPos.row, col: fromPos.col) else {
-                return false
-            }
+        guard let fromPos = move.startPos else {
+            return false
+        }
+        
+        guard isValidRowCol(row: fromPos.row, col: fromPos.col) else {
+            return false
         }
         
         // Check if Game Move To Position is valid.
@@ -181,15 +187,15 @@ public class AchiGameBoard : NSObject, GameBoard {
             let newRow : UInt8 =  move.endPos.row
             let newCol : UInt8 =  move.endPos.col
 
-            let newGPos = AchiBoardPosition.init(row: newRow, col: newCol, occupiedBy: move.player)
-            self[newRow,newCol] = newGPos
+            self[newRow,newCol] = AchiBoardPosition.init(row: newRow, col: newCol, occupiedBy: move.player)
             currentlyActivePlayer = getOtherPlayer()
             
             // Empty the spot we just moved from.
-            if let startPos = move.startPos{
-                let oldGPos = AchiBoardPosition.init(row: startPos.row, col: startPos.col, occupiedBy: nil)
-                self[startPos.row,startPos.col] = oldGPos
+            guard let startPos = move.startPos else {
+                return false
             }
+            self[startPos.row,startPos.col] = AchiBoardPosition.init(row: startPos.row, col: startPos.col, occupiedBy: nil)
+
             return true
         }
         return false
@@ -339,8 +345,132 @@ extension AchiGameBoard : GKGameModel {
         }
     }
     
-    
     public func unapplyGameModelUpdate(_ gameModelUpdate: GKGameModelUpdate){
         
     }
+    
+    
+    //Prashanth : TODO : Test cases for these fellows... they are all part of the score calcuator.
+    // How bout .. putting them in their own class.... ? GameScoring engine? GameBoard is getting too big.
+    public func chancesOfNextMoveResultingInWin(player : GamePlayer) -> CGFloat{
+    // May be we need to expand this to says.. how many winning moves the guy has with the next move.
+        let allPossMoves = gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: self, gamePlayer: player)
+        let winningMoves = allPossMoves.filter({ (move) -> Bool in
+            if let gameCopy = self.copy() as? AchiGameBoard{
+                if gameCopy.make(move: move) == true {
+                   return gameCopy.isWin(for: player)
+                }
+            }
+            return false
+        })
+        
+        if winningMoves.count > 0 {
+            return CGFloat(winningMoves.count/allPossMoves.count)
+        }
+     return 0.0
+    }
+
+    public func chancesOfNextMoveResultingInLossForPlayer(player : GamePlayer) -> CGFloat{
+        // May be we need to expand this to says.. how many winning moves the guy has with the next move.
+        let allPossMoves = gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: self, gamePlayer: player)
+        let losingMoves = allPossMoves.filter({ (move) -> Bool in
+            if let gameCopy = self.copy() as? AchiGameBoard{
+                if gameCopy.make(move: move) == true {
+                    return gameCopy.isLoss(for: player)
+                }
+            }
+            return false
+        })
+        
+        if losingMoves.count > 0 {
+            return CGFloat(losingMoves.count/allPossMoves.count)
+        }
+        return 0.0
+    }
+
+    public func changesOfMoveResultingInWinForOpponentOnHisNextMove(player : GamePlayer) -> CGFloat{
+        // May be we need to expand this to says.. how many winning moves the guy has with the next move.
+        let allPossMoves = gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: self, gamePlayer: player)
+
+        let theMovesThatSuck = allPossMoves.filter({ (move) -> Bool in
+
+            if let gameCopy = self.copy() as? AchiGameBoard{
+                if gameCopy.make(move: move) == true {
+
+                if (gameCopy.isWin(for: player)) {return false}
+                if (gameCopy.isLoss(for: player)) {return false}
+    
+                    let allSecondGenMoves = gameCopy.gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: gameCopy, gamePlayer: gameCopy.getOtherPlayer())
+                    
+                    let winningMovesForOpponent = allSecondGenMoves.filter({ (move) -> Bool in
+                        gameCopy.make(move: move)
+                        return gameCopy.isWin(for: gameCopy.getOtherPlayer())
+                    })
+                    
+                    if winningMovesForOpponent.count > 0 {
+                        // Here we have an opportunity to refine this further.
+                        // Right now if the opponent has even 1 winning move.. we say good and go ahead.
+                        // This assumes, he wil make that move.. but we could look at how many winning moves he has.. that will increase the likelyhood of him making those changes. etc...
+                        return true
+                    }
+                    
+                }
+            }
+            return false
+        })
+        
+        if theMovesThatSuck.count > 0 {
+            return CGFloat(theMovesThatSuck.count/allPossMoves.count)
+        }
+        return 0.0
+    }
+
+    public func evaluateBoardState(gameBoard: GameBoard) -> GameState {
+        
+        switch checkBoardStateForDraw(gameBoard: gameBoard) {
+        case .GameOverDraw:
+            return GameState.GameOverDraw
+        default:
+            break
+        }
+        
+        return checkBoardStateForWin(gameBoard: gameBoard)
+    }
+    
+    private func checkBoardStateForWin(gameBoard : GameBoard) -> GameState{
+        
+        if let gameBoard = gameBoard as? AchiGameBoard {
+            
+            for eachLine in gameBoard.consecutivePositions{
+                
+                let row0 = eachLine[0].row, row1 = eachLine[1].row, row2 = eachLine[2].row
+                let col0 = eachLine[0].col, col1 = eachLine[1].col, col2 = eachLine[2].col
+                
+                guard (gameBoard[row0,col0]?.occupiedBy as? AchiPlayer) != nil else { continue }
+                guard (gameBoard[row1,col1]?.occupiedBy as? AchiPlayer) != nil else { continue }
+                guard (gameBoard[row2,col2]?.occupiedBy as? AchiPlayer) != nil else { continue }
+                
+                if (gameBoard[row0,col0]?.occupiedBy as? AchiPlayer) == (gameBoard[row1,col1]?.occupiedBy as? AchiPlayer){
+                    if (gameBoard[row1,col1]?.occupiedBy as? AchiPlayer) == (gameBoard[row2,col2]?.occupiedBy as? AchiPlayer){
+                        return GameState.GameOverIsWinForPlayer((gameBoard[2,2]?.occupiedBy)!)
+                    }
+                    continue
+                }
+            }
+        }
+        
+        return GameState.GameContinues
+    }
+    
+    private func checkBoardStateForDraw(gameBoard : GameBoard) -> GameState{
+        
+        for eachPlayer in (gameBoard.players as! [AchiPlayer]){
+            if gameRulesEngine.getAllPossibleMovesForPlayer(gameBoard: gameBoard, gamePlayer: eachPlayer).count > 0 {
+                return GameState.GameContinues
+            }
+        }
+        
+        return GameState.GameOverDraw
+    }
+    
 }

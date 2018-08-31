@@ -323,7 +323,7 @@ class AchiGameBoardTests: XCTestCase {
         
         XCTAssertTrue(validMove == true, "Invalid Game Move")
         
-        let boardState = achiBoard.evaluateBoardState()
+        let boardState = achiBoard.evaluateGameStateForBoard()
         
         print("Board State is \(boardState)")
         switch boardState {
@@ -363,7 +363,7 @@ class AchiGameBoardTests: XCTestCase {
        
         XCTAssertTrue(validMove == true, "Invalid Game Move")
         
-        let boardState = achiBoard.evaluateBoardState()
+        let boardState = achiBoard.evaluateGameStateForBoard()
 
         print("Board State is \(boardState)")
         switch boardState {
