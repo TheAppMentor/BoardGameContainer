@@ -1,0 +1,16 @@
+PODS:
+  - TKSwitcherCollection (1.4.2)
+
+DEPENDENCIES:
+  - TKSwitcherCollection
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - TKSwitcherCollection
+
+SPEC CHECKSUMS:
+  TKSwitcherCollection: c0a51de35317a9de292e80b85fa275299607da6b
+
+PODFILE CHECKSUM: 8ffbe65562011115d5ba9662da944fcd99028a22
+
+COCOAPODS: 1.5.3

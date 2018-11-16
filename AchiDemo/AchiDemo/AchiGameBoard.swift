@@ -169,15 +169,6 @@ public class AchiGameBoard : NSObject, GameBoard {
     
     public func make(move : GameMove) -> Bool{
         
-        // Check if Game Move From Position is valid.
-//        guard let fromPos = move.startPos else {
-//            return false
-//        }
-        
-//        guard isValidRowCol(row: fromPos.row, col: fromPos.col) else {
-//            return false
-//        }
-        
         // Check if Game Move To Position is valid.
         guard isValidRowCol(row: move.endPos.row, col: move.endPos.col) else {
             return false
@@ -197,6 +188,7 @@ public class AchiGameBoard : NSObject, GameBoard {
 
             return true
         }
+        print("gameRulesEngine.isValidMove == false")
         return false
     }
     

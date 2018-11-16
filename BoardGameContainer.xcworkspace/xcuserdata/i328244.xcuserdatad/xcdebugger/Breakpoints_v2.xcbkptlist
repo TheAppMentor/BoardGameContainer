@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AchiDemo/AchiDemoTests/AchiGameBoardTests.swift"
+            timestampString = "557416610.6966439"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
+            landmarkName = "testMakeMove_ALL_PLACED_MOVE_FOR_WIN_RED()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AchiDemo/AchiDemo/AchiGameBoard.swift"
+            timestampString = "564058329.773165"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "evaluateScoreForBoard(player:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AchiDemo.AchiGameBoard.evaluateScoreForBoard(player: AchiDemo.GamePlayer) -&gt; Swift.Int"
+                  moduleName = "AchiDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/Desktop/XCode%20Projects/BoardGameContainer/AchiDemo/AchiDemo/AchiGameBoard.swift"
+                  timestampString = "564058329.968173"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BoardGameContainerFramework.AchiGameBoard.evaluateScoreForBoard(player: BoardGameContainerFramework.GamePlayer) -&gt; Swift.Int"
+                  moduleName = "BoardGameContainerFramework"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/Desktop/XCode%20Projects/BoardGameContainer/AchiDemo/AchiDemo/AchiGameBoard.swift"
+                  timestampString = "564058330.2208101"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AchiDemoTests.AchiGameBoard.evaluateScoreForBoard(player: AchiDemoTests.GamePlayer) -&gt; Swift.Int"
+                  moduleName = "AchiDemoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/Desktop/XCode%20Projects/BoardGameContainer/AchiDemo/AchiDemo/AchiGameBoard.swift"
+                  timestampString = "564058331.1780241"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AchiDemo/AchiDemoTests/AchiGameBoardTests.swift"
+            timestampString = "557416610.6977119"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
+            landmarkName = "testMakeMove_ALL_PLACED_MOVE_FOR_WIN_RED()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AchiDemo/AchiDemo/AchiGameRulesEngine.swift"
+            timestampString = "557416610.698265"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "checkBoardStateForWin(gameBoard:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AchiDemo.AchiGameRulesEngine.(checkBoardStateForWin in _8EDEF2435E7DCB065813E54597C548A7)(gameBoard: AchiDemo.GameBoard) -&gt; AchiDemo.GameState"
+                  moduleName = "AchiDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/Desktop/XCode%20Projects/BoardGameContainer/AchiDemo/AchiDemo/AchiGameRulesEngine.swift"
+                  timestampString = "564058329.976913"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "282">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BoardGameContainerFramework.AchiGameRulesEngine.(checkBoardStateForWin in _188F9BD3A33EDA189E2848CF3D787B9B)(gameBoard: BoardGameContainerFramework.GameBoard) -&gt; BoardGameContainerFramework.GameState"
+                  moduleName = "BoardGameContainerFramework"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/Desktop/XCode%20Projects/BoardGameContainer/AchiDemo/AchiDemo/AchiGameRulesEngine.swift"
+                  timestampString = "564058330.235798"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "282">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AchiDemoTests.AchiGameRulesEngine.(checkBoardStateForWin in _D5AA011A24CBB2C8A6F4F784577B17CD)(gameBoard: AchiDemoTests.GameBoard) -&gt; AchiDemoTests.GameState"
+                  moduleName = "AchiDemoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/Desktop/XCode%20Projects/BoardGameContainer/AchiDemo/AchiDemo/AchiGameRulesEngine.swift"
+                  timestampString = "564058331.195336"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "282">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AchiDemo/AchiDemo/AchiGameRulesEngine.swift"
+            timestampString = "557416610.698352"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "checkBoardStateForWin(gameBoard:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AchiDemo.AchiGameRulesEngine.(checkBoardStateForWin in _8EDEF2435E7DCB065813E54597C548A7)(gameBoard: AchiDemo.GameBoard) -&gt; AchiDemo.GameState"
+                  moduleName = "AchiDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/Desktop/XCode%20Projects/BoardGameContainer/AchiDemo/AchiDemo/AchiGameRulesEngine.swift"
+                  timestampString = "564058329.988575"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "15973">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BoardGameContainerFramework.AchiGameRulesEngine.(checkBoardStateForWin in _188F9BD3A33EDA189E2848CF3D787B9B)(gameBoard: BoardGameContainerFramework.GameBoard) -&gt; BoardGameContainerFramework.GameState"
+                  moduleName = "BoardGameContainerFramework"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/Desktop/XCode%20Projects/BoardGameContainer/AchiDemo/AchiDemo/AchiGameRulesEngine.swift"
+                  timestampString = "564058330.238994"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "15973">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AchiDemoTests.AchiGameRulesEngine.(checkBoardStateForWin in _D5AA011A24CBB2C8A6F4F784577B17CD)(gameBoard: AchiDemoTests.GameBoard) -&gt; AchiDemoTests.GameState"
+                  moduleName = "AchiDemoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/i328244/Desktop/XCode%20Projects/BoardGameContainer/AchiDemo/AchiDemo/AchiGameRulesEngine.swift"
+                  timestampString = "564058331.197798"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "15973">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AchiDemo/AchiDemoTests/AchiGameBoardTests.swift"
+            timestampString = "557416610.698408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
+            landmarkName = "testMakeMove_ALL_PLACED_MOVE_FOR_WIN_RED()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AchiDemo/AchiDemoTests/AchiGameBoardTests.swift"
+            timestampString = "557416610.699441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "testSubscriptSetPosition()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

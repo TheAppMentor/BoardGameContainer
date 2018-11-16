@@ -67,6 +67,24 @@
 		2FBDE65D20D9047700596734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F63D5A82088C76A00864DBE /* Assets.xcassets */; };
 		2FCD8D7B208D054A006BC30A /* AchiDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCD8D7A208D054A006BC30A /* AchiDemoTests.swift */; };
 		2FCD8D83208D0556006BC30A /* AchiGameBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCD8D82208D0556006BC30A /* AchiGameBoardTests.swift */; };
+		2FDC6741219EC89F00488A82 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		2FDC6742219EC8A000488A82 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		2FDC6743219EC8A100488A82 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		2FDC674A219ECA5C00488A82 /* TKLiquidSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6745219ECA5C00488A82 /* TKLiquidSwitch.swift */; };
+		2FDC674B219ECA5C00488A82 /* TKLiquidSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6745219ECA5C00488A82 /* TKLiquidSwitch.swift */; };
+		2FDC674C219ECA5C00488A82 /* TKBaseSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6746219ECA5C00488A82 /* TKBaseSwitcher.swift */; };
+		2FDC674D219ECA5C00488A82 /* TKBaseSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6746219ECA5C00488A82 /* TKBaseSwitcher.swift */; };
+		2FDC674E219ECA5C00488A82 /* TKSimpleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6747219ECA5C00488A82 /* TKSimpleSwitch.swift */; };
+		2FDC674F219ECA5C00488A82 /* TKSimpleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6747219ECA5C00488A82 /* TKSimpleSwitch.swift */; };
+		2FDC6750219ECA5C00488A82 /* TKSmileSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6748219ECA5C00488A82 /* TKSmileSwitch.swift */; };
+		2FDC6751219ECA5C00488A82 /* TKSmileSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6748219ECA5C00488A82 /* TKSmileSwitch.swift */; };
+		2FDC6752219ECA5C00488A82 /* TKExchangeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6749219ECA5C00488A82 /* TKExchangeSwitch.swift */; };
+		2FDC6753219ECA5C00488A82 /* TKExchangeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6749219ECA5C00488A82 /* TKExchangeSwitch.swift */; };
+		2FDC6754219ED16C00488A82 /* TKLiquidSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6745219ECA5C00488A82 /* TKLiquidSwitch.swift */; };
+		2FDC6755219ED18900488A82 /* TKBaseSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6746219ECA5C00488A82 /* TKBaseSwitcher.swift */; };
+		2FDC6756219ED18900488A82 /* TKSimpleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6747219ECA5C00488A82 /* TKSimpleSwitch.swift */; };
+		2FDC6757219ED18900488A82 /* TKSmileSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6748219ECA5C00488A82 /* TKSmileSwitch.swift */; };
+		2FDC6758219ED18900488A82 /* TKExchangeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC6749219ECA5C00488A82 /* TKExchangeSwitch.swift */; };
 		2FEB9A2820D747C400BA497A /* GameBoardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB9A2720D747C400BA497A /* GameBoardError.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +155,11 @@
 		2FCD8D7A208D054A006BC30A /* AchiDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiDemoTests.swift; sourceTree = "<group>"; };
 		2FCD8D7C208D054A006BC30A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FCD8D82208D0556006BC30A /* AchiGameBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchiGameBoardTests.swift; sourceTree = "<group>"; };
+		2FDC6745219ECA5C00488A82 /* TKLiquidSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKLiquidSwitch.swift; sourceTree = "<group>"; };
+		2FDC6746219ECA5C00488A82 /* TKBaseSwitcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKBaseSwitcher.swift; sourceTree = "<group>"; };
+		2FDC6747219ECA5C00488A82 /* TKSimpleSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSimpleSwitch.swift; sourceTree = "<group>"; };
+		2FDC6748219ECA5C00488A82 /* TKSmileSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSmileSwitch.swift; sourceTree = "<group>"; };
+		2FDC6749219ECA5C00488A82 /* TKExchangeSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKExchangeSwitch.swift; sourceTree = "<group>"; };
 		2FEB9A2720D747C400BA497A /* GameBoardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +214,7 @@
 		2F63D5952088C76800864DBE = {
 			isa = PBXGroup;
 			children = (
+				2FDC6744219ECA5C00488A82 /* TKSwitcherCollection */,
 				2F4EE7E220D5744800F75F6E /* TrialPlayGround.playground */,
 				2F63D5A02088C76800864DBE /* AchiDemo */,
 				2FCD8D79208D054A006BC30A /* AchiDemoTests */,
@@ -254,6 +278,18 @@
 				2F96165E20DA979900216198 /* TestUtils.swift */,
 			);
 			path = AchiDemoTests;
+			sourceTree = "<group>";
+		};
+		2FDC6744219ECA5C00488A82 /* TKSwitcherCollection */ = {
+			isa = PBXGroup;
+			children = (
+				2FDC6745219ECA5C00488A82 /* TKLiquidSwitch.swift */,
+				2FDC6746219ECA5C00488A82 /* TKBaseSwitcher.swift */,
+				2FDC6747219ECA5C00488A82 /* TKSimpleSwitch.swift */,
+				2FDC6748219ECA5C00488A82 /* TKSmileSwitch.swift */,
+				2FDC6749219ECA5C00488A82 /* TKExchangeSwitch.swift */,
+			);
+			path = TKSwitcherCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F63D5AC2088C76A00864DBE /* LaunchScreen.storyboard in Resources */,
+				2FDC6743219EC8A100488A82 /* (null) in Resources */,
 				2F63D5A92088C76A00864DBE /* Assets.xcassets in Resources */,
 				2F63D5A72088C76800864DBE /* Main.storyboard in Resources */,
 			);
@@ -385,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FBDE65D20D9047700596734 /* Assets.xcassets in Resources */,
+				2FDC6742219EC8A000488A82 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +430,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FDC6741219EC89F00488A82 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,19 +444,24 @@
 				2F3099C4208BBC92003D0750 /* GamePlayer.swift in Sources */,
 				2F3099BA208B9120003D0750 /* GameRulesEngine.swift in Sources */,
 				2F63D5B62088C7AD00864DBE /* AchiBoardPosition.swift in Sources */,
+				2FDC6750219ECA5C00488A82 /* TKSmileSwitch.swift in Sources */,
 				2F86FB7121321D6400A97A62 /* GameScoringEngine.swift in Sources */,
+				2FDC6752219ECA5C00488A82 /* TKExchangeSwitch.swift in Sources */,
 				2F3099BE208B94C6003D0750 /* GameBoardFactory.swift in Sources */,
 				2F3099BC208B9146003D0750 /* AchiGameRulesEngine.swift in Sources */,
 				2F6A82AF20D77596004EAE85 /* AchiPlayer.swift in Sources */,
 				2F3099C0208BAA60003D0750 /* GameType.swift in Sources */,
 				2F87758220D3BADE008BAEAB /* LenChaoGameBoard.swift in Sources */,
+				2FDC674C219ECA5C00488A82 /* TKBaseSwitcher.swift in Sources */,
 				2FEB9A2820D747C400BA497A /* GameBoardError.swift in Sources */,
 				2F3099C2208BAE67003D0750 /* GameBoardPosition.swift in Sources */,
 				2F63D5A42088C76800864DBE /* ViewController.swift in Sources */,
 				2F87758420D3C3C4008BAEAB /* GameMove.swift in Sources */,
+				2FDC674E219ECA5C00488A82 /* TKSimpleSwitch.swift in Sources */,
 				2F63D5A22088C76800864DBE /* AppDelegate.swift in Sources */,
 				2F3099B8208B8EDB003D0750 /* GameBoard.swift in Sources */,
 				2F4176BE20DC94FA00C9B3DA /* AchiMove.swift in Sources */,
+				2FDC674A219ECA5C00488A82 /* TKLiquidSwitch.swift in Sources */,
 				2F3F903720DE7B24002F4D8B /* GameState.swift in Sources */,
 				2F63D5B42088C78000864DBE /* AchiGameBoard.swift in Sources */,
 				2F3099B6208B8D20003D0750 /* GameController.swift in Sources */,
@@ -430,13 +474,18 @@
 			files = (
 				2FBDE65820D8FD3A00596734 /* GameRulesEngine.swift in Sources */,
 				2FBDE65220D8FD3A00596734 /* GameBoardError.swift in Sources */,
+				2FDC6755219ED18900488A82 /* TKBaseSwitcher.swift in Sources */,
 				2FBDE65920D8FD3A00596734 /* AchiGameRulesEngine.swift in Sources */,
 				2FBDE65620D8FD3A00596734 /* AchiPlayer.swift in Sources */,
+				2FDC6757219ED18900488A82 /* TKSmileSwitch.swift in Sources */,
 				2FBDE65720D8FD3A00596734 /* GameMove.swift in Sources */,
 				2FBDE65C20D8FD7800596734 /* GamePlayer.swift in Sources */,
+				2FDC6758219ED18900488A82 /* TKExchangeSwitch.swift in Sources */,
+				2FDC6754219ED16C00488A82 /* TKLiquidSwitch.swift in Sources */,
 				2FBDE65320D8FD3A00596734 /* AchiGameBoard.swift in Sources */,
 				2F3F903920DE7BE6002F4D8B /* GameState.swift in Sources */,
 				2FBDE65120D8FD3A00596734 /* GameBoard.swift in Sources */,
+				2FDC6756219ED18900488A82 /* TKSimpleSwitch.swift in Sources */,
 				2F4176C020DC94FA00C9B3DA /* AchiMove.swift in Sources */,
 				2FBDE65420D8FD3A00596734 /* GameBoardPosition.swift in Sources */,
 				2FBDE65020D8FD3A00596734 /* GameBoardFactory.swift in Sources */,
@@ -451,15 +500,20 @@
 			files = (
 				2F361A3C20D57976008DE8EA /* GameBoard.swift in Sources */,
 				2F361A4420D5FFE4008DE8EA /* GameMove.swift in Sources */,
+				2FDC674F219ECA5C00488A82 /* TKSimpleSwitch.swift in Sources */,
 				2F4EE7E420D5761200F75F6E /* AchiGameRulesEngineTests.swift in Sources */,
 				2F361A4620D60032008DE8EA /* AchiGameBoard.swift in Sources */,
 				2F4176C120DC990E00C9B3DA /* AchiMove.swift in Sources */,
 				2F361A3F20D579C7008DE8EA /* GameType.swift in Sources */,
+				2FDC674B219ECA5C00488A82 /* TKLiquidSwitch.swift in Sources */,
+				2FDC6751219ECA5C00488A82 /* TKSmileSwitch.swift in Sources */,
 				2F361A4020D57A1E008DE8EA /* GameBoardFactory.swift in Sources */,
 				2FCD8D7B208D054A006BC30A /* AchiDemoTests.swift in Sources */,
+				2FDC6753219ECA5C00488A82 /* TKExchangeSwitch.swift in Sources */,
 				2F361A3E20D579BA008DE8EA /* GameRulesEngine.swift in Sources */,
 				2F361A3D20D579B2008DE8EA /* GameBoardPosition.swift in Sources */,
 				2F361A4520D60010008DE8EA /* AchiGameRulesEngine.swift in Sources */,
+				2FDC674D219ECA5C00488A82 /* TKBaseSwitcher.swift in Sources */,
 				2FCD8D83208D0556006BC30A /* AchiGameBoardTests.swift in Sources */,
 				2F96165D20DA977900216198 /* AchiBoardPositionTests.swift in Sources */,
 				2F6A82B120D786CA004EAE85 /* GameBoardError.swift in Sources */,

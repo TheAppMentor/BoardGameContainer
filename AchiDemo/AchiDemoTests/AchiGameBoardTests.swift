@@ -374,4 +374,16 @@ class AchiGameBoardTests: XCTestCase {
             XCTFail()
         }
     }
+    
+    func testEvaluateScoreForBoardPosition_expectScore_5() {
+        /*      B - B - R
+                B - B - 0
+                R - R - 0         */
+        
+
+        
+        
+    }
+    
+    
 }

@@ -23,6 +23,14 @@ public enum GamePlayerColor {
             //return UIImage(named: "BlackCoin.png")
         }
     }
+    
+    func nodeName() -> String {
+        switch self {
+        case .Red:   return "redNode"
+        case .Black: return "blackNode"
+        }
+    }
+    
 }
 
 public class AchiPlayer: NSObject, GamePlayer {
@@ -33,6 +41,7 @@ public class AchiPlayer: NSObject, GamePlayer {
     public init(color : GamePlayerColor) {
         self.playerId = UUID().uuidString.hashValue
         self.coinNode = SKSpriteNode(imageNamed: color.imageName())
+        self.coinNode.name = color.nodeName()
         //super.init()
     }
 }
